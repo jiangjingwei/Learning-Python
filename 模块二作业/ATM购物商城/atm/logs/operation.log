@@ -1,0 +1,40 @@
+2018-01-28 01:40:30 - operation - INFO - login success aa
+2018-01-28 02:09:36 - operation - INFO - login success aa
+2018-01-28 02:11:16 - operation - INFO - login success aa
+2018-01-28 02:13:31 - operation - INFO - login success aa
+2018-01-28 02:14:01 - operation - INFO - login success aa
+2018-01-28 02:15:07 - operation - INFO - login success aa
+2018-01-28 02:16:13 - operation - INFO - login success aa
+2018-01-28 02:16:48 - operation - INFO - login success aa
+2018-01-28 02:18:32 - operation - INFO - login success aa
+2018-01-28 02:19:48 - operation - INFO - login success aa
+2018-01-28 02:20:28 - operation - INFO - login success aa
+2018-01-28 02:21:10 - operation - INFO - login success aa
+2018-01-28 02:21:29 - operation - INFO - login success aa
+2018-01-28 02:26:06 - operation - INFO - login success aa
+2018-01-28 02:26:32 - operation - INFO - pay_shopping_car success  - aa- 25000
+2018-01-28 02:28:36 - operation - INFO - freeze_account aa
+2018-01-28 02:28:36 - operation - INFO - account wrong aa
+2018-01-28 02:29:31 - operation - INFO - freeze_account already aa
+2018-01-28 02:29:31 - operation - INFO - account wrong aa
+2018-01-28 02:31:28 - operation - INFO - login success aa
+2018-01-28 02:31:36 - operation - INFO - freeze_account aa
+2018-01-28 02:31:49 - operation - INFO - account wrong aa
+2018-01-28 02:32:03 - operation - INFO - freeze_account already aa
+2018-01-28 02:32:11 - operation - INFO - unfreeze_account aa
+2018-01-28 02:32:27 - operation - INFO - unfreeze_account already aa
+2018-01-28 02:32:39 - operation - INFO - account wrong aa
+2018-01-28 02:34:09 - operation - INFO - login success aa
+2018-01-28 02:34:19 - operation - INFO - withdraw sucess - aa - 1000
+2018-01-28 02:34:41 - operation - INFO - withdraw fail aa
+2018-01-28 02:35:36 - operation - INFO - freeze_account aa
+2018-01-28 02:35:41 - operation - INFO - withdraw fail freeze_account already aa
+2018-01-28 02:35:46 - operation - INFO - unfreeze_account aa
+2018-01-28 02:36:21 - operation - INFO - login success aa
+2018-01-28 02:36:37 - operation - INFO - repayment success - aa - 99999
+2018-01-28 02:37:53 - operation - INFO - transfer success - aa - 1000 
+2018-01-28 02:38:14 - operation - INFO - transfer success - aa - 1000 
+2018-01-28 02:38:47 - operation - INFO - pay_shopping_car success  - aa- 16000
+2018-01-28 02:38:50 - operation - INFO - ATM to shopping_mall  aa
+2018-01-28 02:38:54 - operation - INFO - pay_shopping_car success  - aa- 16000
+2018-01-28 02:38:59 - operation - INFO - save account aa

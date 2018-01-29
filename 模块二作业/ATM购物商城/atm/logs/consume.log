@@ -1,0 +1,23 @@
+2018-01-28 02:19:49 - consume - INFO - logger_consume
+2018-01-28 02:20:29 - consume - INFO - logger_consume
+2018-01-28 02:21:30 - consume - INFO - logger_consume - aa
+2018-01-28 02:26:08 - consume - INFO - logger_consume - aa
+2018-01-28 02:26:11 - consume - WARNING - salary not enough - aa - ('IphoneX', 8000)
+2018-01-28 02:26:12 - consume - WARNING - salary not enough - aa
+2018-01-28 02:26:12 - consume - WARNING - salary not enough - aa - ('Python Book', 200)
+2018-01-28 02:26:18 - consume - WARNING - salary not enough - aa
+2018-01-28 02:26:20 - consume - WARNING - salary not enough - aa - ('Python Book', 200)
+2018-01-28 02:26:20 - consume - WARNING - salary not enough - aa - ('Python Book', 200)
+2018-01-28 02:26:21 - consume - WARNING - salary not enough - aa - ('Python Book', 200)
+2018-01-28 02:26:21 - consume - WARNING - salary not enough - aa - ('Python Book', 200)
+2018-01-28 02:26:22 - consume - WARNING - salary not enough - aa - ('IphoneX', 8000)
+2018-01-28 02:26:23 - consume - WARNING - salary not enough - aa - ('IphoneX', 8000)
+2018-01-28 02:26:32 - consume - INFO - pay_money - aa 
+2018-01-28 02:26:37 - consume - INFO - check shopping_car - aa
+2018-01-28 02:26:40 - consume - INFO - back to home - aa
+2018-01-28 02:38:28 - consume - INFO - logger_consume - aa
+2018-01-28 02:38:34 - consume - WARNING - salary not enough - aa - ('IphoneX', 8000)
+2018-01-28 02:38:36 - consume - WARNING - salary not enough - aa - ('IphoneX', 8000)
+2018-01-28 02:38:41 - consume - INFO - check shopping_car - aa
+2018-01-28 02:38:47 - consume - INFO - pay_money - aa 
+2018-01-28 02:38:50 - consume - INFO - back to home - aa
