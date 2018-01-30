@@ -118,6 +118,7 @@ def parse_condition(condition):
 def oprate_gt(i, condition):
     field = condition.split(i)[0].strip()
     field2 = condition.split(i)[1].strip()
+    print('----->', field, field2)
     result_list = []
     if field in table_dic.keys():
         for index, value in enumerate(table_dic[field]):
@@ -177,6 +178,7 @@ def oprate_eq(i, condition):
 def oprate_li(i, condition):
     field = condition.split(i)[0].strip()
     field2 = condition.split(i)[1].strip()
+
     result_list = []
     if field in table_dic.keys():
         for index, value in enumerate(table_dic[field]):
@@ -202,6 +204,7 @@ def add_user(cmd):
         table_dic['date'].append(add_list[4].strip())
         print(table_dic)
         print('增加了1条记录...')
+        # 在这里可以直接读取文件，写入新的数据，就不用再读取table_dic全部数据了
         save_to_file()
     else:
         print('手机号码不能重复')
@@ -225,8 +228,8 @@ if __name__ == '__main__':
     '''
     命令输入参考格式如下：
     update staff_table set age = 99 where dept = IT
-    find * from staff_table where where dept = IT
-    find name,age from staff_table where where age > 23
+    find * from staff_table where  dept = IT
+    find name,age from staff_table where  age > 23
     find name from staff_table where where age = 23
     add staff_table Jack Jiang,26,17800000000,IT,2018-10-29
     del from staff where id = 3 
