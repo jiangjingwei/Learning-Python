@@ -21,7 +21,7 @@ def service_start(user_dict):
             '3': save_to_file,
         }
         choice = input('请输入选项：')
-        if choice.isdigit() and 0 < int(choice) < 4:
+        if choice.isdigit() and 0 < int(choice) <= len(actions):
             actions[choice](user_dict)
 
         else:
