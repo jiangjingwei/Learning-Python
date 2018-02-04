@@ -1,5 +1,5 @@
 from .auth import login
-from .models import School,
+from .models import School
 
 school_info = {
     'school_obj': [],
