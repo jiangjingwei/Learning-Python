@@ -1,4 +1,4 @@
-from core.models import Admin
+from core.models import Admin, Teacher
 
 def student_sys():
 
@@ -6,6 +6,7 @@ def student_sys():
 
 
 def teacher_sys():
+    Teacher
     print('老师系统...')
 
 
@@ -15,7 +16,6 @@ def admin_sys(user):
         for index, value in enumerate(admin.menu):
             print(str(index) + '.', value[0])
         choice = input('请输入选项：')
-        # print(admin.menu[int(choice)][1])
         getattr(admin, admin.menu[int(choice)][1])()
 
 

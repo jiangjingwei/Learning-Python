@@ -6,6 +6,7 @@ sys.path.append(BASE_DIR)
 
 USERS_PATH = BASE_DIR + '/db/users'
 SCHOOL_INFO = BASE_DIR + '/db/school_info'
+COURSE_INFO = BASE_DIR + '/db/course_info'
 TEACHER_INFO = BASE_DIR + '/db/teacher_info'
 STUDENT_INFO = BASE_DIR + '/db/student_info'
 CLASSES_INFO = BASE_DIR + '/db/classes_info'

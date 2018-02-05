@@ -5,9 +5,10 @@ from settings import ROLE
 
 def main():
     print('----选课系统首页----')
-    result = login()
-    if result:
-        getattr(views, ROLE[result['role']])(result['user'])
+    views.admin_sys('aa')
+    # result = login()
+    # if result:
+    #     getattr(views, ROLE[result['role']])(result['user'])
 
 
 
