@@ -32,14 +32,17 @@ class Admin:
             print(str(index) + '.', obj)
         return teacher_list
 
-
+    def show_classes(self):
+        class_list = db_handler.show_from_file(CLASSES_INFO)
+        for index, obj in enumerate(class_list):
+            print(str(index) + '.', obj)
+        return class_list
 
     def show_student(self):
         student_list = db_handler.show_from_file(STUDENT_INFO)
         for index, obj in enumerate(student_list):
             print(str(index) + '.学员：', obj.name)
         return student_list
-
 
     def create_teacher(self):
         while True:
@@ -66,7 +69,7 @@ class Admin:
                     choice_course = input('选择课程：')
                     if not choice_course: continue
                     if choice_course.isdigit():
-                        if 0 <= int(choice_course) <= len(course_list) -1:
+                        if 0 <= int(choice_course) <= len(course_list) - 1:
                             classes_obj = Classes(classes_name, classes_date)
                             classes_obj.teacher = teacher_list[int(choice_teacher)]
                             classes_obj.course = course_list[int(choice_course)]
@@ -85,7 +88,6 @@ class Admin:
             else:
                 print('请输入正确的序号...')
 
-
     def create_course(self):
         while True:
             course_name = input('课程名：').strip()
@@ -98,7 +100,6 @@ class Admin:
             db_handler.dump_to_file(course_obj, COURSE_INFO)
             print('创建课程成功：', course_obj)
             break
-
 
     def create_student(self):
         while True:
@@ -120,11 +121,9 @@ class Classes:
         self.student = []
 
     def __str__(self):
-        return '班级:{0} \t开班日期:{1} \t讲师:{2} \t课程:{3} \t学员:{4}'.format(self.name,
-                                                                     self.classes_date,
-                                                                     self.teacher,
-                                                                     self.course.name,
-                                                                     [i.name for i in self.student])
+        info = '''班级:{0} 开班日期:{1} 讲师:{2} 课程:{3} 学员:{4}'''.format(self.name, self.classes_date, self.teacher.name,
+                                                                 self.course.name, [i.name for i in self.student])
+        return info
 
 
 class Course:
@@ -147,17 +146,39 @@ class Teacher:
 
     def __init__(self, name):
         self.name = name
-        self.school = None
         self.classes = None
+        self.class_begin_records = []
 
     def __str__(self):
         return '讲师: %s' % self.name
 
     def class_begin(self):
-        pass
+        while True:
+            print('当前上课的班级', self.classes)
+            content = input('请输入上课内容大纲：').strip()
+            if not content: continue
+            if not hasattr(self, 'class_begin_records'):
+                self.class_begin_records = []
+                self.class_begin_records.append(content)
+                print(self.class_begin_records)
+            else:
+                self.class_begin_records.append(content)
+            db_handler.update_to_file(self, TEACHER_INFO)
+            break
 
     def make_score(self):
-        pass
+        flag = True
+        while flag:
+            if self.classes.student:
+                score = input('请输入分数：').strip()
+                if not score: continue
+                for s in self.classes.student:
+                    s.score = score
+                    db_handler.update_to_file(s, STUDENT_INFO)
+                flag = False
+            else:
+                print('当前班级没有学员...')
+                flag = False
 
     def check_classes(self):
         print(self.classes)
@@ -167,14 +188,14 @@ class Student:
     menu = [
         ['注册', 'register'],
         ['交学费', 'pay_tuition'],
-        ['查看个人信息', 'user_info']
+        ['查看个人信息', 'user_info'],
+        ['查看班级', 'show_classes'],
     ]
 
     def __init__(self, name):
         self.name = name
         self.classes = None
         self.pay_money = 0
-        self.pay_status = True
 
     def __str__(self):
         if self.classes:
@@ -187,7 +208,6 @@ class Student:
         for index, obj in enumerate(class_list):
             print(str(index) + '.', obj)
         return class_list
-
 
     def register(self):
         while True:
@@ -210,27 +230,28 @@ class Student:
             else:
                 print('输入有误...')
                 continue
-            course_list = self.show_classes()
-            choice_course = input('选择课程：')
-            if not choice_course: continue
-            if choice_course.isdigit() and 0 <= int(choice_course) <= len(course_list) - 1:
-                self.classes = course_list[int(choice_course)]
-                course_list[int(choice_course)].student = self
+            classes_list = self.show_classes()
+            choice_classes = input('选择班级：')
+            if not choice_classes: continue
+            if choice_classes.isdigit() and 0 <= int(choice_classes) <= len(choice_classes) - 1:
+                classes_obj = classes_list[int(choice_classes)]
+                self.classes = classes_obj
+                classes_obj.teacher.classes = classes_obj
+                classes_obj.student.append(self)
                 db_handler.update_to_file(self, STUDENT_INFO)
-                db_handler.update_to_file(course_list[int(choice_course)], CLASSES_INFO)
+                db_handler.update_to_file(classes_obj, CLASSES_INFO)
+                db_handler.update_to_file(classes_obj.teacher, TEACHER_INFO)
                 break
             else:
                 print('输入有误...')
 
-
     def pay_tuition(self):
-        print(self.pay_money)
         if self.pay_money < 19800:
             print('已交定金：', self.pay_money)
             while True:
-                money = input('输入剩余缴费金额%s：' %(19800-self.pay_money))
-                if not money:continue
-                if money.isdigit() and int(money) >= (19800-self.pay_money) :
+                money = input('输入剩余缴费金额%s：' % (19800 - self.pay_money))
+                if not money: continue
+                if money.isdigit() and int(money) >= (19800 - self.pay_money):
                     self.pay_money = int(money) + self.pay_money
                     db_handler.update_to_file(self, STUDENT_INFO)
                     print('缴费成功...')
@@ -242,4 +263,4 @@ class Student:
             print('学费已交清，前往班级学习...')
 
     def user_info(self):
-        print(self)
+        print(self, '分数：', self.score)

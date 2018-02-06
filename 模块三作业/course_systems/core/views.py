@@ -10,7 +10,6 @@ def student_sys(user):
     controller(student_obj)
 
 
-
 def teacher_sys(user):
     teacher_obj = get_obj(user, TEACHER_INFO)
     controller(teacher_obj)
@@ -35,4 +34,3 @@ def get_obj(user, filename):
         print(obj.name)
         if obj.name == user:
             return obj
-

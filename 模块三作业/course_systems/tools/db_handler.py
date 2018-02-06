@@ -1,16 +1,14 @@
 import pickle
 import os
 from settings import USERS_PATH
+
+
 class Mypickle:
 
     def dump_to_file(self, obj, filename):
         # 将对象保存到文件
         with open(filename, 'ab') as f:
             pickle.dump(obj, f)
-
-    def load_from_file(self):
-        # 从文件获取对象
-        pass
 
     def update_to_file(self, obj, filename):
         # 修改文件中的对象

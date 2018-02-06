@@ -14,6 +14,3 @@ def login():
                 return {'user': user, 'role': role}
         else:
             print('登录失败...')
-
-
-
