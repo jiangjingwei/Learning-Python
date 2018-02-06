@@ -20,7 +20,7 @@ class Mypickle:
         try:
             while True:
                 data = pickle.load(f_r)
-                if data.city == obj.city:
+                if data.name == obj.name:
                     pickle.dump(obj, f_w)
                 else:
                     pickle.dump(data, f_w)

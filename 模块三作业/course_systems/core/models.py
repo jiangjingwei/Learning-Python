@@ -7,12 +7,10 @@ db_handler = Mypickle()
 class Admin:
     # 管理员类
     menu = [
-        ['创建校区', 'create_school'],
         ['创建课程', 'create_course'],
         ['创建讲师', 'create_teacher'],
         ['创建班级', 'create_classes'],
         ['创建学员', 'create_student'],
-        ['查看校区', 'show_school'],
         ['查看课程', 'show_course'],
         ['查看讲师', 'show_teacher'],
         ['查看班级', 'show_classes'],
@@ -21,12 +19,6 @@ class Admin:
 
     def __init__(self, name):
         self.name = name
-
-    def show_school(self):
-        school_list = db_handler.show_from_file(SCHOOL_INFO)
-        for index, obj in enumerate(school_list):
-            print(str(index) + '.', obj)
-        return school_list
 
     def show_course(self):
         course_list = db_handler.show_from_file(COURSE_INFO)
@@ -40,106 +32,83 @@ class Admin:
             print(str(index) + '.', obj)
         return teacher_list
 
-    def show_classes(self):
-        class_list = db_handler.show_from_file(CLASSES_INFO)
-        for index, obj in enumerate(class_list):
-            print(str(index) + '.', obj)
-        return class_list
+
 
     def show_student(self):
         student_list = db_handler.show_from_file(STUDENT_INFO)
         for index, obj in enumerate(student_list):
-            print(str(index) + '.', obj)
+            print(str(index) + '.学员：', obj.name)
         return student_list
 
-    def create_school(self):
-        school_name = input('学校名称：')
-        school_city = input('校区名称：')
-        school_obj = School(school_name, school_city)
-        db_handler.dump_to_file(school_obj, SCHOOL_INFO)
 
     def create_teacher(self):
-        school_list = self.show_school()
-        choice_school = input('输入校区：')
-        teacher_name = input('老师名称：')
-        school_list[int(choice_school)].add_teacher(teacher_name)
+        while True:
+            teacher_name = input('创建讲师名>>>').strip()
+            if not teacher_name: continue
+            teacher_obj = Teacher(teacher_name)
+            db_handler.dump_to_file(teacher_obj, TEACHER_INFO)
+            db_handler.save_to_users(teacher_name, role='2')
+            print('创建讲师成功', teacher_obj)
+            break
 
     def create_classes(self):
-        school_list = self.show_school()
-        choice_school = input('选择校区：')
-        classes_name = input('班级名称：')
-        classes_date = input('开班日期')
-        teacher_list = self.show_teacher()
-        choice_teacher = input('选择讲师：')
-        course_list = self.show_course()
-        choice_course = input('选择课程：')
-        school_list[int(choice_school)].add_classes(classes_name,
-                                                    classes_date,
-                                                    teacher_list[int(choice_teacher)],
-                                                    course_list[int(choice_course)])
+        while True:
+            classes_name = input('班级名称：').strip()
+            if not classes_name: continue
+            classes_date = input('开班日期').strip()
+            if not classes_date: continue
+            teacher_list = self.show_teacher()
+            choice_teacher = input('选择讲师：')
+            if not choice_teacher: continue
+            if choice_teacher.isdigit():
+                if 0 <= int(choice_teacher) <= len(teacher_list) - 1:
+                    course_list = self.show_course()
+                    choice_course = input('选择课程：')
+                    if not choice_course: continue
+                    if choice_course.isdigit():
+                        if 0 <= int(choice_course) <= len(course_list) -1:
+                            classes_obj = Classes(classes_name, classes_date)
+                            classes_obj.teacher = teacher_list[int(choice_teacher)]
+                            classes_obj.course = course_list[int(choice_course)]
+                            teacher_list[int(choice_teacher)].classes = classes_obj
+                            db_handler.dump_to_file(classes_obj, CLASSES_INFO)
+                            db_handler.update_to_file(teacher_list[int(choice_teacher)], TEACHER_INFO)
+                            print('班级创建成功', classes_obj)
+                            break
+                        else:
+                            print('输入的序号不存在...')
+
+                    else:
+                        print('请输入正确的序号...')
+                else:
+                    print('输入的序号不存在...')
+            else:
+                print('请输入正确的序号...')
+
 
     def create_course(self):
-        school_list = self.show_school()
-        choice_school = input('输入校区：')
-        print('正在为%s校区添加课程>>>' % school_list[int(choice_school)])
-        course_name = input('课程名：')
-        course_period = input('课程周期：')
-        course_price = input('课程价格：')
-        school_list[int(choice_school)].add_course(course_name, course_period, course_price)
+        while True:
+            course_name = input('课程名：').strip()
+            if not course_name: continue
+            course_period = input('课程周期：').strip()
+            if not course_period: continue
+            course_price = input('课程价格：').strip()
+            if not course_price: continue
+            course_obj = Course(course_name, course_period, course_price)
+            db_handler.dump_to_file(course_obj, COURSE_INFO)
+            print('创建课程成功：', course_obj)
+            break
+
 
     def create_student(self):
-        student_name = input('输入学员：')
-        school_list = self.show_school()
-        choice_school = input('输入校区：')
-        classes_list = self.show_classes()
-        choice_classes = input('输入班级：')
-        school_list[int(choice_school)].add_student(student_name, classes_list[int(choice_classes)])
-
-
-class School:
-    def __init__(self, name, city):
-        self.name = name
-        self.city = city
-        self.course = []
-        self.classes = []
-        self.teacher = []
-        self.student = []
-
-    def __str__(self):
-        return '<%s  %s校区> ' % (self.name, self.city)
-
-    def add_course(self, course_name, course_period, course_price):
-        course_obj = Course(course_name, course_period, course_price)
-        self.course.append(course_obj)
-        db_handler.dump_to_file(course_obj, COURSE_INFO)
-        db_handler.update_to_file(self, SCHOOL_INFO)
-
-    def add_teacher(self, teacher_name):
-        teacher_obj = Teacher(teacher_name)
-        teacher_obj.school = self
-        self.teacher.append(teacher_obj)
-        db_handler.dump_to_file(teacher_obj, TEACHER_INFO)
-        db_handler.update_to_file(self, SCHOOL_INFO)
-        db_handler.save_to_users(teacher_name, role='2')
-
-    def add_classes(self, classes_name, classes_date, teacher_obj, course_obj):
-        classes_obj = Classes(classes_name, classes_date)
-        classes_obj.teacher = teacher_obj
-        classes_obj.course = course_obj
-        self.classes.append(classes_obj)
-        db_handler.dump_to_file(classes_obj, CLASSES_INFO)
-        db_handler.update_to_file(self, SCHOOL_INFO)
-
-    def add_student(self, student_name, classes_obj):
-        student_obj = Student(student_name)
-        self.student.append(student_obj)
-        classes_obj.student.append(student_obj)
-        student_obj.classes = classes_obj
-        student_obj.school = self
-        db_handler.dump_to_file(classes_obj, CLASSES_INFO)
-        db_handler.update_to_file(self, SCHOOL_INFO)
-        db_handler.dump_to_file(student_obj, STUDENT_INFO)
-        db_handler.save_to_users(student_name, role='3')
+        while True:
+            student_name = input('输入学员名>>>')
+            if not student_name: continue
+            student_obj = Student(student_name)
+            db_handler.dump_to_file(student_obj, STUDENT_INFO)
+            db_handler.save_to_users(student_name, role='3')
+            print('创建学员成功', student_obj.name)
+            break
 
 
 class Classes:
@@ -155,7 +124,7 @@ class Classes:
                                                                      self.classes_date,
                                                                      self.teacher,
                                                                      self.course.name,
-                                                                     [i.user for i in self.student])
+                                                                     [i.name for i in self.student])
 
 
 class Course:
@@ -170,28 +139,107 @@ class Course:
 
 class Teacher:
     menu = [
-        [],
-        [],
+        ['上课', 'class_begin'],
+        ['打分', 'make_score'],
+        ['查看班级', 'check_classes'],
+
     ]
 
     def __init__(self, name):
         self.name = name
         self.school = None
-
-    def __str__(self):
-        return '<%s %s>--讲师: %s' % (self.school.name, self.school.city, self.name)
-
-
-class Student:
-    menu = []
-
-    def __init__(self, user):
-        self.user = user
-        self.school = None
         self.classes = None
 
     def __str__(self):
-        return '学员:%s \t所属学校：%s \t所在班级:%s \t课程:%s' % (self.user,
-                                                      self.school.name,
-                                                      self.classes.name,
-                                                      self.classes.course.name)
+        return '讲师: %s' % self.name
+
+    def class_begin(self):
+        pass
+
+    def make_score(self):
+        pass
+
+    def check_classes(self):
+        print(self.classes)
+
+
+class Student:
+    menu = [
+        ['注册', 'register'],
+        ['交学费', 'pay_tuition'],
+        ['查看个人信息', 'user_info']
+    ]
+
+    def __init__(self, name):
+        self.name = name
+        self.classes = None
+        self.pay_money = 0
+        self.pay_status = True
+
+    def __str__(self):
+        if self.classes:
+            return '学员:%s \t所在班级:%s \t课程:%s' % (self.name, self.classes.name, self.classes.course.name)
+        else:
+            return self.name
+
+    def show_classes(self):
+        class_list = db_handler.show_from_file(CLASSES_INFO)
+        for index, obj in enumerate(class_list):
+            print(str(index) + '.', obj)
+        return class_list
+
+
+    def register(self):
+        while True:
+            self.phone = input('输入手机号：').strip()
+            if not self.phone: continue
+            if not self.phone.isdigit():
+                print('请输入正确的手机号...')
+                continue
+            if len(self.phone) < 11:
+                print('手机号不能少于11位...')
+                continue
+            self.deposit = input('报名费：').strip()
+            if not self.deposit: continue
+            if self.deposit.isdigit():
+                if float(self.deposit) >= 1000:
+                    self.pay_money += 1000
+                else:
+                    print('定金不能少于1000...')
+                    continue
+            else:
+                print('输入有误...')
+                continue
+            course_list = self.show_classes()
+            choice_course = input('选择课程：')
+            if not choice_course: continue
+            if choice_course.isdigit() and 0 <= int(choice_course) <= len(course_list) - 1:
+                self.classes = course_list[int(choice_course)]
+                course_list[int(choice_course)].student = self
+                db_handler.update_to_file(self, STUDENT_INFO)
+                db_handler.update_to_file(course_list[int(choice_course)], CLASSES_INFO)
+                break
+            else:
+                print('输入有误...')
+
+
+    def pay_tuition(self):
+        print(self.pay_money)
+        if self.pay_money < 19800:
+            print('已交定金：', self.pay_money)
+            while True:
+                money = input('输入剩余缴费金额%s：' %(19800-self.pay_money))
+                if not money:continue
+                if money.isdigit() and int(money) >= (19800-self.pay_money) :
+                    self.pay_money = int(money) + self.pay_money
+                    db_handler.update_to_file(self, STUDENT_INFO)
+                    print('缴费成功...')
+                    break
+                else:
+                    print('缴费失败...')
+                    continue
+        else:
+            print('学费已交清，前往班级学习...')
+
+    def user_info(self):
+        print(self)
