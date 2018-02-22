@@ -19,7 +19,7 @@ def login(username, password):
         if users_dict[username]['passwd'] == password:
             return {
                 'username': username,
-                'home_path': '%s\home\%s' % (BASE_DIR, username),
+                'home_path': '%s/home/%s' % (BASE_DIR, username),
                 'disk_size': '',
             }
         return False
