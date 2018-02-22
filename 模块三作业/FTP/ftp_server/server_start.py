@@ -1,11 +1,11 @@
 import os
 import sys
-from core.ftp_server import run
-from core.auth import login
+from core.ftp_server import FtpServer
 
 
 def main():
-    run()
+    ftp_server = FtpServer()
+    ftp_server.start()
 
 
 if __name__ == '__main__':
