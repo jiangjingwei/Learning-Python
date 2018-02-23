@@ -7,4 +7,4 @@ if __name__ == '__main__':
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     sys.path.append(BASE_DIR)
     server = FTPServer()
-    server.run()
+    server.run()  # 启动ftp服务端
