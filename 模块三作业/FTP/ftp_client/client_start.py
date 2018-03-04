@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-from core.client_server import run
-from conf.settings import *
-
-
-def main():
-    run()
-
-
-if __name__ == '__main__':
-    main()
-=======
 import sys
 import os
 from bin.client_server import Client
@@ -24,4 +12,4 @@ if __name__ == '__main__':
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     sys.path.append(BASE_DIR)
     main()
->>>>>>> origin/master
+
