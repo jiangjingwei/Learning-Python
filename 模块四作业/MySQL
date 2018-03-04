@@ -1,0 +1,116 @@
+1、查询所有的课程的名称以及对应的任课老师姓名
+
+2、查询学生表中男女生各有多少人
+
+3、查询物理成绩等于100的学生的姓名
+
+4、查询平均成绩大于八十分的同学的姓名和平均成绩
+
+5、查询所有学生的学号，姓名，选课数，总成绩
+
+6、 查询姓李老师的个数
+
+7、 查询没有报李平老师课的学生姓名
+
+8、 查询物理课程比生物课程高的学生的学号
+
+9、 查询没有同时选修物理课程和体育课程的学生姓名
+
+10、查询挂科超过两门(包括两门)的学生姓名和班级
+、查询选修了所有课程的学生姓名
+
+12、查询李平老师教的课程的所有成绩记录
+
+13、查询全部学生都选修了的课程号和课程名
+
+14、查询每门课程被选修的次数
+
+select course_id, count(student_id) times from score group by course_id;
+
+15、查询之选修了一门课程的学生姓名和学号
+select sid,sname from student inner join
+(select student_id,count(course_id) from score group by student_id having count(course_id)=1) t1
+on sid=t1.student_id;
+
+16、查询所有学生考出的成绩并按从高到低排序（成绩去重）
+select distinct num from score order by num desc;
+
+
+17、查询平均成绩大于85的学生姓名和平均成绩
+select sname,t1.avg_score from student inner join
+(select student_id, avg(num) avg_score from score group by student_id having avg(num)>85) t1
+on sid=t1.student_id;
+
+18、查询生物成绩不及格的学生姓名和对应生物分数
+select sname,t1.num from student inner join
+(select student_id,num from score where course_id=
+(select cid from course where cname="生物") and num < 60) t1
+on sid=t1.student_id;
+
+19、查询在所有选修了李平老师课程的学生中，这些课程(李平老师的课程，不是所有课程)平均成绩最高的学生姓名
+select sname from student inner join
+(select student_id,avg(num)  from score where course_id in
+(select cid from course where teacher_id=
+(select tid from teacher where tname='李平老师')) group by student_id order by num desc limit 1) t1
+on sid=t1.student_id;
+
+
+20、查询每门课程成绩最好的前两名学生姓名
+
+select score.sid,score.course_id,score.num,T.first_num,T.second_num from score left join
+    (
+    select
+        sid,
+        (select num from score as s2 where s2.course_id = s1.course_id order by num desc limit 0,1) as first_num,
+        (select num from score as s2 where s2.course_id = s1.course_id order by num desc limit 1,1) as second_num
+    from
+        score as s1
+    ) as T
+    on score.sid =T.sid
+    where score.num <= T.first_num and score.num >= T.second_num;
+
+
+select t_first.cid,t_first.first_score,t_second.second_score from
+(select score.course_id cid,max(num) second_score from score inner join
+(select score.course_id cid,max(num) first_score from score group by course_id) t1 on
+score.cid = t1.course_id where score.num<t1.first_score group by course_id) t_second,
+(select score.course_id cid,max(num) first_score from score group by course_id) t_first
+where t_second.cid=t_first.cid
+;
+
+21、查询不同课程但成绩相同的学号，课程号，成绩
+select distinct s1.course_id,s2.course_id,s1.num, s2.num
+from score s1, score s2
+where s1.num=s2.num and s1.course_id != s2.course_id;
+
+
+22、查询没学过“李平”老师课程的学生姓名以及选修的课程名称；
+select t3.name,cname from course inner join
+(select t2.sname name,course_id from score inner join
+(select sid,sname from student where sid not in
+(select distinct student_id from score where course_id in
+(select cid from course inner join
+(select tid from teacher where tname='李平老师') t1
+on teacher_id = t1.tid))) t2 on
+score.student_id=t2.sid) t3 on
+course.cid=t3.course_id;
+
+
+23、查询所有选修了学号为1的同学选修过的一门或者多门课程的同学学号和姓名；
+
+select sid,sname from student inner join
+(select distinct student_id from score where course_id in
+(select course_id from score where student_id=1)) t1 on
+sid=t1.student_id;
+
+
+24、任课最多的老师中学生单科成绩最高的学生姓名
+select sname from student inner join
+(select student_id from score inner join
+(select course_id,max(num) number from score where course_id in
+(select cid from course where teacher_id =
+(select teacher_id from course group by teacher_id order by count(cid) desc limit 1))
+group by course_id) t1 on
+score.course_id = t1.course_id and score.num=t1.number) t2 on
+student.sid=t2.student_id;
+
