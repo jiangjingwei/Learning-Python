@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .con{
+            width: 300px;
+            margin: 100px auto 0;
+            border: 1px solid #000;
+            /*overflow: hidden;*/
+
+        }
+
+        .con a{
+            width: 20px;
+            height: 20px;
+            background-color: gold;
+            float: left;
+        }
+
+        .clearfix:before,.clearfix:after{
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after{
+            clear: both;
+        }
+
+        .clearfix{
+            zoom: 1;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="con clearfix">
+    <a href="">1</a>
+    <a href="">2</a>
+    <a href="">3</a>
+    <a href="">4</a>
+    <a href="">5</a>
+    <a href="">6</a>
+    <a href="">7</a>
+    <a href="">8</a>
+    <!--<div style="clear: both"></div>-->
+</div>
+
+</body>
+</html>

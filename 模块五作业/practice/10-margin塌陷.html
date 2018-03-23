@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .con{
+            width: 600px;
+            height: 600px;
+            background-color: gold;
+            /*border: 1px solid gold;*/
+            /*overflow: hidden;*/
+
+
+
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin-top: 100px;
+        }
+
+        .clearfix:before{
+            content: '';
+            display: table;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<div class="con clearfix">
+    <div class="box"></div>
+</div>
+
+</body>
+</html>
