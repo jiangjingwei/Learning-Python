@@ -18,7 +18,7 @@ body{
 }
 
 .header .bg_logo{
-    margin-left: 445px;
+    margin-left: 180px;
     float: left;
 }
 
@@ -57,7 +57,7 @@ body{
 
 .header_r{
     float: right;
-    margin-right: 378px;
+    margin-right: 117px;
     height: 44px;
     /*line-height: 44px;*/
 }
@@ -99,14 +99,14 @@ body{
 .content{
     /*float: left;*/
     width: 1020px;
-    height: 2000px;
+    height: 1900px;
     background-color: #fff;
     margin: 44px auto;
 }
 
 .content .main_content{
     padding: 6px 28px 60px;
-    height: 1600px;
+    height: 1650px;
 }
 
 .content .main_content .content_l{
@@ -203,9 +203,8 @@ body{
 
 .content .main_content .content_r{
     float: right;
-    margin-left: 20px;
+    margin-right: 72px;
     width: 200px;
-    background-color: red;
 }
 
 .container .footer{
@@ -232,6 +231,10 @@ body{
 
 .container .footer .foot_a span{
     font-size: 2px;
+}
+
+.footer .copyright div{
+    margin: 5px auto;
 }
 
 

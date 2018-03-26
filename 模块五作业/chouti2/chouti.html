@@ -10,6 +10,14 @@
             padding: 0;
         }
 
+        a{
+            text-decoration: none;
+        }
+
+        ul{
+            list-style: none;
+        }
+
         body{
             background-color: #ededed;
         }
@@ -51,6 +59,63 @@
             color: white;
         }
 
+
+
+        .header .login_btn{
+
+            float: right;
+
+        }
+
+
+        .header .login_btn a,.header .login_btn .search{
+            float: left;
+        }
+
+        .header .login_btn a{
+            color: white;
+        }
+
+        .header .login_btn .search{
+            width: 140px;
+            height: 35px;
+            line-height: 35px;
+            overflow: hidden;
+            margin-top: 4px;
+
+        }
+
+        .header .login_btn .search_input{
+            float: left;
+            width: 95px;
+            height: 31px;
+            padding: 2px 2px 2px 5px;
+            background-color: #f4f4f4;
+            border: 1px solid #e0e0e0;
+
+        }
+
+
+        .header .login_btn .search_btn{
+            float: left;
+            width: 31px;
+            height: 31px;
+            background-color: #f4f4f4;
+            padding: 2px;
+            overflow: hidden;
+        }
+
+
+
+        .login_btn .search .icon_s{
+            background: #ededed url("./images/icon.png") no-repeat 0 -196px;
+            width: 11px;
+            height: 13px;
+            display: inline-block;
+            margin-bottom: 3px;
+        }
+
+
         .wrap .content{
             background-color: #fff;
             width: 1018px;
@@ -59,33 +124,32 @@
 
         }
 
-        .header .login_btn,.header .login_btn .search_btn{
+        .content .main_content{
+            padding: 6px 28px 60px;
+        }
 
+        .content .main_content .content_l{
+            width: 630px;
+            float: left;
+        }
+
+        .main_content .content_l .top_l a{
+            float: left;
+        }
+
+
+        .main_content .content_l .top_r a{
             float: right;
-
-        }
-
-        .header .login_btn a{
-            color: white;
-        }
-
-        .header .login_btn .search{
-            width: 100px;
-            height: 30px;
-            border-right: 1px solid #666666;
-
         }
 
 
 
-        .header .login_btn .search_btn{
-            background: #ededed url("./images/icon.png") no-repeat 0 -198px;
-            width: 12px;
-            height: 12px;
-            z-index: 2;
-
-            /*background-color: #666666;*/
+        .content .main_content .content_r{
+            width: 300px;
+            float: right;
         }
+
+
 
     </style>
 </head>
@@ -105,8 +169,12 @@
             <div class="login_btn">
                 <a href="#">注册</a>
                 <a href="#">登陆</a>
-                <input type="text" class="search">
-                <a class="search_btn" href="#"></a>
+                <div class="search">
+                    <input type="text" class="search_input">
+                    <a class="search_btn" href="#"><span class="icon_s"></span></a>
+
+                </div>
+
             </div>
 
         </div>
@@ -116,7 +184,34 @@
     </div>
 
     <div class="content">
-        asaa
+        <div class="main_content">
+            <div class="content_l">
+                <div class="content_top">
+                    <div class="top_l">
+                        <a href="">最热</a>
+                        <a href="">发现</a>
+                        <a href="">人类发布</a>
+                    </div>
+
+                    <div class="top_r">
+                        <a href="">即时排序</a>
+                        <a href="">24小时</a>
+                        <a href="">3天</a>
+                        <a href="">
+                            <span>+</span>
+                            <span>发布</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content_r">
+                bbb
+            </div>
+        </div>
+
+
+
     </div>
 
     <div class="footer">
