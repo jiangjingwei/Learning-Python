@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .container{
+            width: 600px;
+            height: 290px;
+            border: 1px solid #ddd;
+            margin: 100px auto;
+        }
+        .container .news_title{
+            width: 560px;
+            height: 48px;
+            margin: 3px 20px;
+            border-bottom: 1px solid #ddd;
+
+            line-height: 48px;
+
+        }
+
+        .container .news_title span{
+            float: left;
+            font: bolder 18px/48px 'Microsoft Yahei';
+            color: #000;
+            padding: 0 15px;
+            border-bottom: 2px solid red;
+        }
+
+        .container .news_title a{
+            float: right;
+            text-decoration: none;
+            font: 14px/48px 'Microsoft Yahei';
+            color: #666;
+        }
+
+        .container .news_list{
+            list-style: none;
+            width: 560px;
+            height: 240px;
+            margin: 5px 20px;
+        }
+
+        .container .news_list li{
+            overflow: hidden;
+            /*margin-top: 10px;*/
+            font: 14px/38px 'Microsoft Yahei';
+            border-bottom: 1px solid #ddd;
+            background: url("../images/dot.gif") 0 18px no-repeat;
+
+        }
+
+
+        .container .news_list a{
+            float: left;
+            text-decoration: none;
+            text-indent: 30px;
+            color: #000000;
+            background: url("../images/icon.jpg") 5px center no-repeat;
+        }
+
+        .container .news_list a:hover{
+            color: red;
+        }
+
+        .container .news_list span{
+            float: right;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="news_title"><span >新闻列表</span><a href="#">更多>></a></div>
+    <ul class="news_list">
+        <li><a href="#">特征布局：新闻列表所需知识点：盒模型、浮动</a><span>2016-11-25</span></li>
+        <li><a href="#">特征布局：新闻列表所需知识点：盒模型、浮动</a><span>2016-11-25</span></li>
+        <li><a href="#">特征布局：新闻列表所需知识点：盒模型、浮动</a><span>2016-11-25</span></li>
+        <li><a href="#">特征布局：新闻列表所需知识点：盒模型、浮动</a><span>2016-11-25</span></li>
+        <li><a href="#">特征布局：新闻列表所需知识点：盒模型、浮动</a><span>2016-11-25</span></li>
+        <li><a href="#">特征布局：新闻列表所需知识点：盒模型、浮动</a><span>2016-11-25</span></li>
+
+    </ul>
+
+</div>
+
+
+</body>
+</html>
