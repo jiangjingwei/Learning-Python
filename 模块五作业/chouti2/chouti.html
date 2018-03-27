@@ -23,15 +23,18 @@
         }
 
         .wrap .header{
+
             height: 44px;
             background-color: #2459a2;
             line-height: 44px;
             text-align: center;
 
+
         }
 
         .wrap .header .header_con{
             width: 1018px;
+
             margin: 0 auto;
         }
 
@@ -119,13 +122,14 @@
         .wrap .content{
             background-color: #fff;
             width: 1018px;
-            height: 100px;
+            /*height: 100px;*/
             margin: 0 auto;
 
         }
 
         .content .main_content{
             padding: 6px 28px 60px;
+            overflow: hidden;
         }
 
         .content .main_content .content_l{
@@ -133,21 +137,279 @@
             float: left;
         }
 
+        .content .main_content .content_l .content_top,.main_content .content_l .top_l{
+            overflow: hidden;
+        }
+
+        .main_content .content_l .top_l{
+            width: 300px;
+            float: left;
+            margin-top: 5px;
+        }
+
         .main_content .content_l .top_l a{
+            width: 60px;
+            float: left;
+            font: 12px/28px 'Microsoft Yahei';
+            font-weight: 700;
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+
+        }
+
+        .main_content .content_l .content_top a:hover{
+            text-decoration: underline;
+        }
+
+        .main_content .content_l .top_l .active{
+            background: url("./images/tip.png") no-repeat 0 -298px;
+
+        }
+
+        .main_content .content_l .top_l .active1{
+            background: url("./images/tip.png") no-repeat  -60px -298px;
+
+            width: 90px;
+
+        }
+
+
+        .main_content .content_l .top_r{
+            float: right;
+            margin-top: 3px;
+        }
+
+        .main_content .content_l .top_r a{
+            font: 10px/30px 'Microsoft Yahei';
+            color: #390;
+            margin-right: 15px;
+            float: left;
+
+        }
+
+        .main_content .content_l .top_r .release{
+            width: 130px;
+            height: 32px;
+            background-color: #84a42b;
+            color: white;
+            text-align: center;
+            margin-right: 0;
+        }
+
+        .content_l .top_r .release span{
+            font-size: 14px;
+            color: white;
+        }
+
+        .content_l .top_r .release span.release_icon{
+            background: url("./images/icon.png") no-repeat 0 -184px;
+            width: 11px;
+            height: 11px;
+            display: inline-block;
+        }
+
+        .main_content .content_list .item{
+            /*background-color: #2459a2;*/
+            padding: 10px 0;
+            border-top: 1px solid #dce7f4;
+            border-bottom: 1px solid #dce7f4;
+            overflow: hidden;
+            margin-bottom: -1px;
+
+        }
+
+        .content_list .item .item_container{
+            float: left;
+            width: 500px;
+        }
+
+        .content_list .item .item_pic img{
+            width: 64px;
+            height: 64px;
+            padding: 1px;
+            float: right;
+            border: 1px solid #dddddd;
+            margin-top: 5px;
+        }
+
+        .content_list .item .item_title a{
+            font-size: 16px;
+            color: #369;
+            font-weight: 700;
+            font-family: '宋体';
+        }
+
+        .content_list .item .item_content{
+            font-size: 12px;
+            color: #787878;
+            margin-top: 3px;
+        }
+
+        .content_list .item .item_btn{
+            height: 22px;
+            margin: 3px 0 8px 0;
+
+
+
+        }
+
+        .content_list .item .item_btn a{
+            overflow: hidden;
+            margin: 5px 18px 0 0;
+            float: left;
+            line-height: 22px;
+        }
+
+        .content_list .item .item_btn span{
+            display: inline-block;
+            margin-left: 3px;
+            float: left;
+            color: #99aecb;
+            font-size: 14px;
+
+
+        }
+
+        .content_list .item .item_btn .item_icon{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url("./images/icon1.png") no-repeat 0 -38px;
+            line-height: 20px;
+        }
+
+        .content_list .item .item_btn .item_head_pic{
+            width: 18px;
+            height: 18px;
+            border: 1px solid #dddddd;
+            padding: 1px;
             float: left;
         }
 
-
-        .main_content .content_l .top_r a{
-            float: right;
+        .content_list .item .item_btn .vote:hover{
+            background: url("./images/icon1.png") no-repeat 0 -20px;
         }
 
+        .content_list .item .item_btn .comment:hover{
+            background: url("./images/icon1.png") no-repeat 0 -80px;
+        }
+
+        .content_list .item .item_btn .collect:hover{
+            background: url("./images/icon1.png") no-repeat 0 -140px;
+        }
+
+        .content_list .item .item_btn .comment{
+            background-position: 0 -99px;
+            margin-top: 2px;
+
+        }
+
+        .item .item_btn .vote_num,.item .item_btn .comment_num{
+            font-weight: 600;
+        }
+
+
+
+        .content_list .item .item_btn .collect{
+            background-position: 0 -159px;
+        }
 
 
         .content .main_content .content_r{
             width: 300px;
             float: right;
+            /*overflow: hidden;*/
         }
+
+        .main_content .content_l .pagination{
+            /*height: 35px;*/
+            /*border: 1px solid black;*/
+            margin-top: 22px;
+            overflow: hidden;
+        }
+
+        .main_content .content_l .pagination a{
+
+            width: 34px;
+            height: 34px;
+            text-align: center;
+            line-height: 34px;
+            border: 1px solid #dddddd;
+            margin-right: 5px;
+            float: left;
+            border-radius: 5px;
+            color: black;
+        }
+
+
+        .main_content .content_l .pagination .pre_page,.main_content .content_l .pagination .next_page{
+            width: 79px;
+        }
+
+        .content .footer{
+            padding-top: 20px;
+            margin: 6px 28px 60px;
+            border-top: 1px solid #ccdcef;
+            text-align: center;
+            font-size: 12px;
+            overflow: hidden;
+        }
+
+        .content .footer a,span{
+            color: #5681ab;
+        }
+        .content .footer span{
+            display: inline-block;
+            margin: 0 8px;
+            /*font-size: 4px;*/
+            /*height: 11px;*/
+        }
+
+        .content .footer .rss_pic{
+            margin-left: 10px;
+            /*padding-top: 4px;*/
+            display: inline-block;
+        }
+
+        .content .footer .zap{
+            margin-top: 5px;
+
+        }
+
+        .footer .zap .gozap span{
+            font-size: 12px;
+
+        }
+
+        .footer .zap .zap_l{
+            color: black;
+            font-size: 13px;
+            margin: 0 0 0 3px;
+        }
+
+        .footer .zap .zap_r{
+            margin: 0;
+            color: #999;
+            font-family: '宋体';
+
+        }
+
+        .footer .connect{
+            margin-top: 5px;
+            margin-bottom: 5px;
+
+        }
+
+        .footer .connect span,.footer .copyright span{
+            color: black;
+            font-size: 12px;
+
+        }
+        .footer .copyright span{
+            margin-bottom: 30px;
+        }
+
 
 
 
@@ -188,35 +450,286 @@
             <div class="content_l">
                 <div class="content_top">
                     <div class="top_l">
-                        <a href="">最热</a>
-                        <a href="">发现</a>
-                        <a href="">人类发布</a>
+                        <a class="active" href="">最热</a>
+                        <a  href="">发现</a>
+                        <a  href="">人类发布</a>
                     </div>
 
                     <div class="top_r">
                         <a href="">即时排序</a>
                         <a href="">24小时</a>
                         <a href="">3天</a>
-                        <a href="">
-                            <span>+</span>
+                        <a class="release" href="">
+                            <span class="release_icon"></span>
                             <span>发布</span>
                         </a>
                     </div>
                 </div>
+
+
+                <div class="content_list">
+                    <div class="item">
+                        <div class="item_container">
+                            <div class="item_title">
+                                <a href="#">滤镜进化论：从工具到美学定义者滤镜进化论：从工具到美学定义者</a>
+                            </div>
+
+                            <div class="item_content">
+                                她坐拥五项专利，是历史上拥有专利最多的非裔美国女性。早在1957年，她就发明了一种固定有卫生棉的月经带，但在商业化时，“当他们发现我是个黑人的时候，就突然没有了合作意向。”
+                            </div>
+                            <div class="item_btn">
+                                <a href="#"><span class="item_icon vote"></span><span class="vote_num">12</span></a>
+                                <a href="#"><span class="item_icon comment"></span><span class="comment_num">13</span></a>
+                                <a href="#"><span class="item_icon collect"></span><span class="collect_num">私藏</span></a>
+                                <a href="#"><img src="./images/head_pic.jpg" class="item_head_pic" alt=""><span>flash</span></a>
+                            </div>
+
+                        </div>
+                        <div class="item_pic">
+                            <img src="./images/item_pic.png" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_container">
+                            <div class="item_title">
+                                <a href="#">滤镜进化论：从工具到美学定义者滤镜进化论：从工具到美学定义者</a>
+                            </div>
+
+                            <div class="item_content">
+                                她坐拥五项专利，是历史上拥有专利最多的非裔美国女性。早在1957年，她就发明了一种固定有卫生棉的月经带，但在商业化时，“当他们发现我是个黑人的时候，就突然没有了合作意向。”
+                            </div>
+                            <div class="item_btn">
+                                <a href="#"><span class="item_icon vote"></span><span class="vote_num">12</span></a>
+                                <a href="#"><span class="item_icon comment"></span><span class="comment_num">13</span></a>
+                                <a href="#"><span class="item_icon collect"></span><span class="collect_num">私藏</span></a>
+                                <a href="#"><img src="./images/head_pic.jpg" class="item_head_pic" alt=""><span>flash</span></a>
+                            </div>
+
+                        </div>
+                        <div class="item_pic">
+                            <img src="./images/item_pic.png" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_container">
+                            <div class="item_title">
+                                <a href="#">滤镜进化论：从工具到美学定义者滤镜进化论：从工具到美学定义者</a>
+                            </div>
+
+                            <div class="item_content">
+                                她坐拥五项专利，是历史上拥有专利最多的非裔美国女性。早在1957年，她就发明了一种固定有卫生棉的月经带，但在商业化时，“当他们发现我是个黑人的时候，就突然没有了合作意向。”
+                            </div>
+                            <div class="item_btn">
+                                <a href="#"><span class="item_icon vote"></span><span class="vote_num">12</span></a>
+                                <a href="#"><span class="item_icon comment"></span><span class="comment_num">13</span></a>
+                                <a href="#"><span class="item_icon collect"></span><span class="collect_num">私藏</span></a>
+                                <a href="#"><img src="./images/head_pic.jpg" class="item_head_pic" alt=""><span>flash</span></a>
+                            </div>
+
+                        </div>
+                        <div class="item_pic">
+                            <img src="./images/item_pic.png" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_container">
+                            <div class="item_title">
+                                <a href="#">滤镜进化论：从工具到美学定义者滤镜进化论：从工具到美学定义者</a>
+                            </div>
+
+                            <div class="item_content">
+                                她坐拥五项专利，是历史上拥有专利最多的非裔美国女性。早在1957年，她就发明了一种固定有卫生棉的月经带，但在商业化时，“当他们发现我是个黑人的时候，就突然没有了合作意向。”
+                            </div>
+                            <div class="item_btn">
+                                <a href="#"><span class="item_icon vote"></span><span class="vote_num">12</span></a>
+                                <a href="#"><span class="item_icon comment"></span><span class="comment_num">13</span></a>
+                                <a href="#"><span class="item_icon collect"></span><span class="collect_num">私藏</span></a>
+                                <a href="#"><img src="./images/head_pic.jpg" class="item_head_pic" alt=""><span>flash</span></a>
+                            </div>
+
+                        </div>
+                        <div class="item_pic">
+                            <img src="./images/item_pic.png" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_container">
+                            <div class="item_title">
+                                <a href="#">滤镜进化论：从工具到美学定义者滤镜进化论：从工具到美学定义者</a>
+                            </div>
+
+                            <div class="item_content">
+                                她坐拥五项专利，是历史上拥有专利最多的非裔美国女性。早在1957年，她就发明了一种固定有卫生棉的月经带，但在商业化时，“当他们发现我是个黑人的时候，就突然没有了合作意向。”
+                            </div>
+                            <div class="item_btn">
+                                <a href="#"><span class="item_icon vote"></span><span class="vote_num">12</span></a>
+                                <a href="#"><span class="item_icon comment"></span><span class="comment_num">13</span></a>
+                                <a href="#"><span class="item_icon collect"></span><span class="collect_num">私藏</span></a>
+                                <a href="#"><img src="./images/head_pic.jpg" class="item_head_pic" alt=""><span>flash</span></a>
+                            </div>
+
+                        </div>
+                        <div class="item_pic">
+                            <img src="./images/item_pic.png" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_container">
+                            <div class="item_title">
+                                <a href="#">滤镜进化论：从工具到美学定义者滤镜进化论：从工具到美学定义者</a>
+                            </div>
+
+                            <div class="item_content">
+                                她坐拥五项专利，是历史上拥有专利最多的非裔美国女性。早在1957年，她就发明了一种固定有卫生棉的月经带，但在商业化时，“当他们发现我是个黑人的时候，就突然没有了合作意向。”
+                            </div>
+                            <div class="item_btn">
+                                <a href="#"><span class="item_icon vote"></span><span class="vote_num">12</span></a>
+                                <a href="#"><span class="item_icon comment"></span><span class="comment_num">13</span></a>
+                                <a href="#"><span class="item_icon collect"></span><span class="collect_num">私藏</span></a>
+                                <a href="#"><img src="./images/head_pic.jpg" class="item_head_pic" alt=""><span>flash</span></a>
+                            </div>
+
+                        </div>
+                        <div class="item_pic">
+                            <img src="./images/item_pic.png" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_container">
+                            <div class="item_title">
+                                <a href="#">滤镜进化论：从工具到美学定义者滤镜进化论：从工具到美学定义者</a>
+                            </div>
+
+                            <div class="item_content">
+                                她坐拥五项专利，是历史上拥有专利最多的非裔美国女性。早在1957年，她就发明了一种固定有卫生棉的月经带，但在商业化时，“当他们发现我是个黑人的时候，就突然没有了合作意向。”
+                            </div>
+                            <div class="item_btn">
+                                <a href="#"><span class="item_icon vote"></span><span class="vote_num">12</span></a>
+                                <a href="#"><span class="item_icon comment"></span><span class="comment_num">13</span></a>
+                                <a href="#"><span class="item_icon collect"></span><span class="collect_num">私藏</span></a>
+                                <a href="#"><img src="./images/head_pic.jpg" class="item_head_pic" alt=""><span>flash</span></a>
+                            </div>
+
+                        </div>
+                        <div class="item_pic">
+                            <img src="./images/item_pic.png" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_container">
+                            <div class="item_title">
+                                <a href="#">滤镜进化论：从工具到美学定义者滤镜进化论：从工具到美学定义者</a>
+                            </div>
+
+                            <div class="item_content">
+                                她坐拥五项专利，是历史上拥有专利最多的非裔美国女性。早在1957年，她就发明了一种固定有卫生棉的月经带，但在商业化时，“当他们发现我是个黑人的时候，就突然没有了合作意向。”
+                            </div>
+                            <div class="item_btn">
+                                <a href="#"><span class="item_icon vote"></span><span class="vote_num">12</span></a>
+                                <a href="#"><span class="item_icon comment"></span><span class="comment_num">13</span></a>
+                                <a href="#"><span class="item_icon collect"></span><span class="collect_num">私藏</span></a>
+                                <a href="#"><img src="./images/head_pic.jpg" class="item_head_pic" alt=""><span>flash</span></a>
+                            </div>
+
+                        </div>
+                        <div class="item_pic">
+                            <img src="./images/item_pic.png" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_container">
+                            <div class="item_title">
+                                <a href="#">滤镜进化论：从工具到美学定义者滤镜进化论：从工具到美学定义者</a>
+                            </div>
+
+                            <div class="item_content">
+                                她坐拥五项专利，是历史上拥有专利最多的非裔美国女性。早在1957年，她就发明了一种固定有卫生棉的月经带，但在商业化时，“当他们发现我是个黑人的时候，就突然没有了合作意向。”
+                            </div>
+                            <div class="item_btn">
+                                <a href="#"><span class="item_icon vote"></span><span class="vote_num">12</span></a>
+                                <a href="#"><span class="item_icon comment"></span><span class="comment_num">13</span></a>
+                                <a href="#"><span class="item_icon collect"></span><span class="collect_num">私藏</span></a>
+                                <a href="#"><img src="./images/head_pic.jpg" class="item_head_pic" alt=""><span>flash</span></a>
+                            </div>
+
+                        </div>
+                        <div class="item_pic">
+                            <img src="./images/item_pic.png" alt="">
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="pagination">
+                        <a href="" class="pre_page">上一页</a>
+                        <a href="">1</a>
+                        <a href="">2</a>
+                        <a href="">3</a>
+                        <a href="">4</a>
+                        <a href="">5</a>
+                        <a href="">6</a>
+                        <a href="">7</a>
+                        <a href="">8</a>
+                        <a href="">9</a>
+                        <a href="">10</a>
+                        <a href="" class="next_page">下一页</a>
+                    </div>
             </div>
 
             <div class="content_r">
-                bbb
+                <img src="./images/homepage_download.png" alt="">
             </div>
+
+
+
+        </div>
+
+        <div class="footer">
+            <a href="">关于我们</a>
+            <span>|</span>
+            <a href="">联系我们</a>
+            <span>|</span>
+            <a href="">服务条款</a>
+            <span>|</span>
+            <a href="">隐私政策</a>
+            <span>|</span>
+            <a href="">抽屉新热榜工具</a>
+            <span>|</span>
+            <a href="">下载客户端</a>
+            <span>|</span>
+            <a href="">意见反馈</a>
+            <span>|</span>
+            <a href="">友情链接</a>
+            <span>|</span>
+            <a href="">公告</a>
+            <a href="" class="rss_pic"><img src="./images/ct_rss.gif" alt=""></a>
+            <br>
+            <div class="zap">
+                <a href="" class="gozap"><img src="./images/gozap-logo-50_15.gif" alt=""></a>
+                <span class="zap_l"> 旗下站点 ©2018 chouti.com</span>
+                <span class="zap_r">京ICP备09053974号-3 京公网安备 110102004562</span>
+            </div>
+            <div class="connect">
+                <span class="phone">违法和不良信息举报： 电话：010-58302039</span>&nbsp;<span>邮箱：jubao@chouti.com</span>
+            </div>
+
+            <div class="copyright">
+                <span>版权所有：北京格致璞科技有限公司</span>
+            </div>
+
+
+
+
+
         </div>
 
 
 
     </div>
 
-    <div class="footer">
 
-    </div>
 
 </div>
 
