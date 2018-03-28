@@ -4,411 +4,10 @@
     <meta charset="UTF-8">
     <title>抽屉新热榜</title>
 
+    <link rel="stylesheet" href="./css/main.css">
+
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
 
-        a{
-            text-decoration: none;
-        }
-
-        ul{
-            list-style: none;
-        }
-
-        body{
-            background-color: #ededed;
-        }
-
-        .wrap .header{
-
-            height: 44px;
-            background-color: #2459a2;
-            line-height: 44px;
-            text-align: center;
-
-
-        }
-
-        .wrap .header .header_con{
-            width: 1018px;
-
-            margin: 0 auto;
-        }
-
-
-        .wrap .header a{
-            float: left;
-            font: 12px/44px 'Microsoft Yahei';
-            color: #c0cddf;
-            text-decoration: none;
-            padding: 0 15px;
-
-        }
-
-        .wrap .header .logo{
-            height: 44px;
-            padding: 0;
-        }
-
-        .wrap .header .logo img{
-            margin: 12px 10px 0 0;
-        }
-
-        .wrap .header a:hover{
-            background-color: #204982;
-            color: white;
-        }
-
-
-
-        .header .login_btn{
-
-            float: right;
-
-        }
-
-
-        .header .login_btn a,.header .login_btn .search{
-            float: left;
-        }
-
-        .header .login_btn a{
-            color: white;
-        }
-
-        .header .login_btn .search{
-            width: 140px;
-            height: 35px;
-            line-height: 35px;
-            overflow: hidden;
-            margin-top: 4px;
-
-        }
-
-        .header .login_btn .search_input{
-            float: left;
-            width: 95px;
-            height: 31px;
-            padding: 2px 2px 2px 5px;
-            background-color: #f4f4f4;
-            border: 1px solid #e0e0e0;
-
-        }
-
-
-        .header .login_btn .search_btn{
-            float: left;
-            width: 31px;
-            height: 31px;
-            background-color: #f4f4f4;
-            padding: 2px;
-            overflow: hidden;
-        }
-
-
-
-        .login_btn .search .icon_s{
-            background: #ededed url("./images/icon.png") no-repeat 0 -196px;
-            width: 11px;
-            height: 13px;
-            display: inline-block;
-            margin-bottom: 3px;
-        }
-
-
-        .wrap .content{
-            background-color: #fff;
-            width: 1018px;
-            /*height: 100px;*/
-            margin: 0 auto;
-
-        }
-
-        .content .main_content{
-            padding: 6px 28px 60px;
-            overflow: hidden;
-        }
-
-        .content .main_content .content_l{
-            width: 630px;
-            float: left;
-        }
-
-        .content .main_content .content_l .content_top,.main_content .content_l .top_l{
-            overflow: hidden;
-        }
-
-        .main_content .content_l .top_l{
-            width: 300px;
-            float: left;
-            margin-top: 5px;
-        }
-
-        .main_content .content_l .top_l a{
-            width: 60px;
-            float: left;
-            font: 12px/28px 'Microsoft Yahei';
-            font-weight: 700;
-            text-align: center;
-            color: #333;
-            margin-bottom: 15px;
-
-        }
-
-        .main_content .content_l .content_top a:hover{
-            text-decoration: underline;
-        }
-
-        .main_content .content_l .top_l .active{
-            background: url("./images/tip.png") no-repeat 0 -298px;
-
-        }
-
-        .main_content .content_l .top_l .active1{
-            background: url("./images/tip.png") no-repeat  -60px -298px;
-
-            width: 90px;
-
-        }
-
-
-        .main_content .content_l .top_r{
-            float: right;
-            margin-top: 3px;
-        }
-
-        .main_content .content_l .top_r a{
-            font: 10px/30px 'Microsoft Yahei';
-            color: #390;
-            margin-right: 15px;
-            float: left;
-
-        }
-
-        .main_content .content_l .top_r .release{
-            width: 130px;
-            height: 32px;
-            background-color: #84a42b;
-            color: white;
-            text-align: center;
-            margin-right: 0;
-        }
-
-        .content_l .top_r .release span{
-            font-size: 14px;
-            color: white;
-        }
-
-        .content_l .top_r .release span.release_icon{
-            background: url("./images/icon.png") no-repeat 0 -184px;
-            width: 11px;
-            height: 11px;
-            display: inline-block;
-        }
-
-        .main_content .content_list .item{
-            /*background-color: #2459a2;*/
-            padding: 10px 0;
-            border-top: 1px solid #dce7f4;
-            border-bottom: 1px solid #dce7f4;
-            overflow: hidden;
-            margin-bottom: -1px;
-
-        }
-
-        .content_list .item .item_container{
-            float: left;
-            width: 500px;
-        }
-
-        .content_list .item .item_pic img{
-            width: 64px;
-            height: 64px;
-            padding: 1px;
-            float: right;
-            border: 1px solid #dddddd;
-            margin-top: 5px;
-        }
-
-        .content_list .item .item_title a{
-            font-size: 16px;
-            color: #369;
-            font-weight: 700;
-            font-family: '宋体';
-        }
-
-        .content_list .item .item_content{
-            font-size: 12px;
-            color: #787878;
-            margin-top: 3px;
-        }
-
-        .content_list .item .item_btn{
-            height: 22px;
-            margin: 3px 0 8px 0;
-
-
-
-        }
-
-        .content_list .item .item_btn a{
-            overflow: hidden;
-            margin: 5px 18px 0 0;
-            float: left;
-            line-height: 22px;
-        }
-
-        .content_list .item .item_btn span{
-            display: inline-block;
-            margin-left: 3px;
-            float: left;
-            color: #99aecb;
-            font-size: 14px;
-
-
-        }
-
-        .content_list .item .item_btn .item_icon{
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background: url("./images/icon1.png") no-repeat 0 -38px;
-            line-height: 20px;
-        }
-
-        .content_list .item .item_btn .item_head_pic{
-            width: 18px;
-            height: 18px;
-            border: 1px solid #dddddd;
-            padding: 1px;
-            float: left;
-        }
-
-        .content_list .item .item_btn .vote:hover{
-            background: url("./images/icon1.png") no-repeat 0 -20px;
-        }
-
-        .content_list .item .item_btn .comment:hover{
-            background: url("./images/icon1.png") no-repeat 0 -80px;
-        }
-
-        .content_list .item .item_btn .collect:hover{
-            background: url("./images/icon1.png") no-repeat 0 -140px;
-        }
-
-        .content_list .item .item_btn .comment{
-            background-position: 0 -99px;
-            margin-top: 2px;
-
-        }
-
-        .item .item_btn .vote_num,.item .item_btn .comment_num{
-            font-weight: 600;
-        }
-
-
-
-        .content_list .item .item_btn .collect{
-            background-position: 0 -159px;
-        }
-
-
-        .content .main_content .content_r{
-            width: 300px;
-            float: right;
-            /*overflow: hidden;*/
-        }
-
-        .main_content .content_l .pagination{
-            /*height: 35px;*/
-            /*border: 1px solid black;*/
-            margin-top: 22px;
-            overflow: hidden;
-        }
-
-        .main_content .content_l .pagination a{
-
-            width: 34px;
-            height: 34px;
-            text-align: center;
-            line-height: 34px;
-            border: 1px solid #dddddd;
-            margin-right: 5px;
-            float: left;
-            border-radius: 5px;
-            color: black;
-        }
-
-
-        .main_content .content_l .pagination .pre_page,.main_content .content_l .pagination .next_page{
-            width: 79px;
-        }
-
-        .content .footer{
-            padding-top: 20px;
-            margin: 6px 28px 60px;
-            border-top: 1px solid #ccdcef;
-            text-align: center;
-            font-size: 12px;
-            overflow: hidden;
-        }
-
-        .content .footer a,span{
-            color: #5681ab;
-        }
-        .content .footer span{
-            display: inline-block;
-            margin: 0 8px;
-            /*font-size: 4px;*/
-            /*height: 11px;*/
-        }
-
-        .content .footer .rss_pic{
-            margin-left: 10px;
-            /*padding-top: 4px;*/
-            display: inline-block;
-        }
-
-        .content .footer .zap{
-            margin-top: 5px;
-
-        }
-
-        .footer .zap .gozap span{
-            font-size: 12px;
-
-        }
-
-        .footer .zap .zap_l{
-            color: black;
-            font-size: 13px;
-            margin: 0 0 0 3px;
-        }
-
-        .footer .zap .zap_r{
-            margin: 0;
-            color: #999;
-            font-family: '宋体';
-
-        }
-
-        .footer .connect{
-            margin-top: 5px;
-            margin-bottom: 5px;
-
-        }
-
-        .footer .connect span,.footer .copyright span{
-            color: black;
-            font-size: 12px;
-
-        }
-        .footer .copyright span{
-            margin-bottom: 30px;
-        }
 
 
 
@@ -720,6 +319,34 @@
             </div>
 
 
+            <div class="pop_container">
+                <div class="pop_con">
+                    <div class="login_container">
+                        <div class="pop_title">登陆</div>
+                        <div class="switch_btn">
+                            <a href="">手机号登陆</a>
+                            <span>|</span>
+                            <a href="">用户名登陆</a>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="register_container">
+                        <div class="pop_title">注册</div>
+
+                    </div>
+                </div>
+
+                <div class="mask">
+
+                </div>
+
+
+            </div>
+
+
 
 
 
@@ -728,6 +355,9 @@
 
 
     </div>
+
+
+    <a href="#" class="gotop"></a>
 
 
 

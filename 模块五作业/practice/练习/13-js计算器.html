@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        window.onload = function () {
+            var oClac = document.getElementById('calc');
+            oClac.onclick = function () {
+                var value01 = document.getElementById('val01').value;
+                var value02 = document.getElementById('val02').value;
+                var mark = document.getElementById('mark').value;
+
+                var result = calc(value01,value02,mark)
+                alert(result)
+
+
+
+
+            };
+
+
+
+            function calc(v1,v2,mark) {
+                var re = 0;
+
+                if(mark === '+'){
+                    re = (parseFloat(v1)*100 + parseFloat(v2)*100)/100
+                }else if(mark === '-'){
+                    re = (parseFloat(v1)*100 + parseFloat(v2)*100)/100
+                }
+                else if(mark === '*'){
+                    re = parseFloat(v1) * parseFloat(v2)
+                }
+                else if(mark === '/'){
+                    re = parseFloat(v1) / parseFloat(v2)
+                }
+
+
+                return re
+
+            }
+
+
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+
+
+<input type="text" id="val01">
+<select name="" id="mark">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+</select>
+<input type="text" id="val02">
+
+<input type="button" value="计算" id="calc">
+
+
+</body>
+</html>
