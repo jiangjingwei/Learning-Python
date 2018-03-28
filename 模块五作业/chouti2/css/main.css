@@ -427,6 +427,12 @@ body {
 }
 
 
+
+/*.pop_container{*/
+    /*display: block;*/
+/*}*/
+
+
 .pop_container .pop_con{
     overflow: hidden;
 }
@@ -447,16 +453,78 @@ body {
 .pop_container .pop_con .login_container{
 
     float: left;
-    background-color: #84a42b;
-    width: 50%;
+    width: 49.9%;
     height: 100%;
+    border-right: 1px dotted black;
 }
+
+.pop_container .pop_con .login_container .switch_btn,.pop_container .pop_con .register_container .step-msg{
+    padding: 20px;
+    font-size: 14px;
+    color: #abb6d2;
+    text-align: center;
+}
+
+
+
+.pop_container .pop_con .login_container input,.pop_container .pop_con .register_container input{
+    width: 196px;
+    padding: 6px;
+    border: 1px solid #CDDDEF;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.pop_container .pop_con .register_container .phone-number{
+    width: 116px;
+}
+
+.pop_container .pop_con .register_container .get-check-code{
+    background-color: #00619E;
+    width: 70px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    display: inline-block;
+    margin-right: -5px;
+}
+
+.pop_container .pop_con .login_container .submit_btn, .pop_container .pop_con .register_container .submit_btn{
+    background-color: #00619E;
+    width: 90px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 68px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.pop_container .pop_con .login_container .submit_btn span,.pop_container .pop_con .register_container .submit_btn span{
+    color: white;
+}
+
+
 
 .pop_container .pop_con .register_container{
     float: left;
-    background-color: cyan;
     width: 50%;
     height: 100%;
+    margin-left: -1px;
+}
+
+.pop_con .register_container .shout-off{
+    position: absolute;
+    background: url("../images/tip.png") no-repeat 0 -482px;
+    width: 15px;
+    height: 15px;
+    right: 5px;
+    top: 7px;
+    cursor: pointer;
 }
 
 
