@@ -309,6 +309,16 @@ body {
     float: right;
 }
 
+.content .main_content .content_r .date-time{
+    height: 30px;
+    background-color: #c0cddf;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+
 .main_content .content_l .pagination {
     margin-top: 22px;
     overflow: hidden;
@@ -428,9 +438,9 @@ body {
 
 
 
-/*.pop_container{*/
-    /*display: block;*/
-/*}*/
+.pop_container{
+    display: none;
+}
 
 
 .pop_container .pop_con{
