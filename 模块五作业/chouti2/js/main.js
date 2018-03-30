@@ -1,10 +1,29 @@
 window.onload = function () {
+
+    // 登陆注册弹框关闭按钮
     var oShoutOff = document.getElementById('shout-off');
     
     oShoutOff.onclick=function () {
         var oPopContainer = document.getElementById('pop_container');
         oPopContainer.style.display = 'none';
     };
+
+    // 登陆注册按钮弹出登陆注册弹框
+    var oRegister = document.getElementById('register');
+    var oLogin = document.getElementById('login');
+
+    oRegister.onclick = function () {
+        var oPopContainer = document.getElementById('pop_container');
+        oPopContainer.style.display = 'block';
+    };
+
+    oLogin.onclick = function () {
+        var oPopContainer = document.getElementById('pop_container');
+        oPopContainer.style.display = 'block';
+    };
+
+
+
 
 
 
@@ -14,6 +33,8 @@ window.onload = function () {
 
     // clearInterval(timer);
 
+
+    // 页面倒计时
 
     Timer();
     setInterval(Timer, 1000);
