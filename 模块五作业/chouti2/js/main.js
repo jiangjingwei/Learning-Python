@@ -120,14 +120,6 @@ $(function () {
     });
     
     
-    // function moving(th, obj) {
-    //
-    //     obj.animate({top:'-=100', right:'+=20px', fontSize:'+=80', opacity:'-=2'},1000);
-    // transition: left 300ms ease,top 300ms ease,font-size 300ms 30ms;
-    // }
-
-
-
 
     // 事件委托
     $('.item_btn').delegate('span', 'click', function (event) {
@@ -137,6 +129,27 @@ $(function () {
             }else {
                 $(this).addClass('span-active').prev().addClass('vote-active');
             }
+
+            var $span = $('<span>+1</span>').addClass('vote-animate').appendTo('body');
+
+            var $voteAnimate = $('.vote-animate');
+            var $pos = $(this).offset();
+            $voteAnimate.html('+1');
+            $voteAnimate.css({position:'fixed', left:$pos.left, top:$pos.top, color:'#9add7f'});
+
+            var times = 1;
+            var timer = setInterval(function () {
+
+                times ++;
+                if (times >15){
+                    clearInterval(timer);
+                     $voteAnimate.remove();
+                }
+                $voteAnimate.animate({left:'+=2', top: '-=5', fontSize: '+=4', opacity:'-=0.08'},30);
+
+            },30)
+
+
 
 
 
@@ -166,6 +179,19 @@ $(function () {
 
 
     });
+
+
+    // goTop
+    $(window).scroll(function () {
+         // console.log($(window).scrollTop());
+
+        if($(window).scrollTop() <= 600){
+            $('.gotop').hide();
+        }else {
+            $('.gotop').show();
+        }
+
+    })
 
 });
 
