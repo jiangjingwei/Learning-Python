@@ -270,6 +270,16 @@ body {
     line-height: 20px;
 }
 
+.content_list .item .item_btn .comment {
+    background-position: 0 -99px;
+    margin-top: 2px;
+
+}
+
+.content_list .item .item_btn .collect {
+    background-position: 0 -159px;
+}
+
 .content_list .item .item_btn .item_head_pic {
     width: 18px;
     height: 18px;
@@ -278,31 +288,35 @@ body {
     float: left;
 }
 
-.content_list .item .item_btn .vote:hover {
+.content_list .item .item_btn .vote-active {
     background: url("../images/icon1.png") no-repeat 0 -20px;
+
+
 }
 
-.content_list .item .item_btn .comment:hover {
+.content_list .item .item_btn .span-active{
+    color: #9add7f;
+}
+
+.content_list .item .item_btn .comment-active {
     background: url("../images/icon1.png") no-repeat 0 -80px;
+
+
 }
 
-.content_list .item .item_btn .collect:hover {
+.content_list .item .item_btn .collect-active {
     background: url("../images/icon1.png") no-repeat 0 -140px;
-}
 
-.content_list .item .item_btn .comment {
-    background-position: 0 -99px;
-    margin-top: 2px;
 
 }
+
+
 
 .item .item_btn .vote_num, .item .item_btn .comment_num {
     font-weight: 600;
 }
 
-.content_list .item .item_btn .collect {
-    background-position: 0 -159px;
-}
+
 
 .content .main_content .content_r {
     width: 300px;
@@ -550,7 +564,12 @@ body {
     z-index: 9990;
 }
 
-.wrap .new_paper_content{
+.wrap .vote-animate{
+    position: fixed;
+    left: 0;
+    top: 0;
+    float: left;
+    color: #9add7f;
 
 }
 

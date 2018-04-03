@@ -1,30 +1,26 @@
 window.onload = function () {
 
     // 登陆注册弹框关闭按钮
-    var oShoutOff = document.getElementById('shout-off');
-    
-    oShoutOff.onclick=function () {
-        var oPopContainer = document.getElementById('pop_container');
-        oPopContainer.style.display = 'none';
-    };
-
-    // 登陆注册按钮弹出登陆注册弹框
-    var oRegister = document.getElementById('register');
-    var oLogin = document.getElementById('login');
-
-    oRegister.onclick = function () {
-        var oPopContainer = document.getElementById('pop_container');
-        oPopContainer.style.display = 'block';
-    };
-
-    oLogin.onclick = function () {
-        var oPopContainer = document.getElementById('pop_container');
-        oPopContainer.style.display = 'block';
-    };
-
-
-
-
+    // var oShoutOff = document.getElementById('shout-off');
+    //
+    // oShoutOff.onclick = function () {
+    //     var oPopContainer = document.getElementById('pop_container');
+    //     oPopContainer.style.display = 'none';
+    // };
+    //
+    // // 登陆注册按钮弹出登陆注册弹框
+    // var oRegister = document.getElementById('register');
+    // var oLogin = document.getElementById('login');
+    //
+    // oRegister.onclick = function () {
+    //     var oPopContainer = document.getElementById('pop_container');
+    //     oPopContainer.style.display = 'block';
+    // };
+    //
+    // oLogin.onclick = function () {
+    //     var oPopContainer = document.getElementById('pop_container');
+    //     oPopContainer.style.display = 'block';
+    // };
 
 
     // Timer();
@@ -40,14 +36,13 @@ window.onload = function () {
     setInterval(Timer, 1000);
 
 
-
     function Timer() {
 
         var oDateTime = document.getElementById('date-time');
 
         var now = new Date();
         var year = now.getFullYear();
-        var month = now.getMonth()+1;
+        var month = now.getMonth() + 1;
         var day = now.getDate();
         var week = now.getDay();
         var hours = now.getHours();
@@ -62,12 +57,9 @@ window.onload = function () {
     };
 
 
-
-
-
     function toWeek(num) {
 
-        switch (num){
+        switch (num) {
             case 0:
                 return '星期天';
 
@@ -90,20 +82,90 @@ window.onload = function () {
                 return '星期六';
         }
     }
-    
-    
-    
+
     function fullTime(num) {
 
-        if(num<10){
+        if (num < 10) {
             num = '0' + num
-
         }
 
         return num
-        
     }
 
-
-
 };
+
+$(function () {
+
+    // 实现事件冒泡取消
+    $('#register').click(function () {
+        $('.pop_container').show();
+        return false
+    });
+
+    $('#login').click(function () {
+        $('.pop_container').show();
+        return false
+    });
+
+    $('#shout-off').click(function () {
+        $('.pop_container').hide();
+    });
+
+    $(document).click(function () {
+        $('#pop_container').hide();
+    });
+
+    $('.pop_con').click(function () {
+        return false
+    });
+    
+    
+    // function moving(th, obj) {
+    //
+    //     obj.animate({top:'-=100', right:'+=20px', fontSize:'+=80', opacity:'-=2'},1000);
+    // transition: left 300ms ease,top 300ms ease,font-size 300ms 30ms;
+    // }
+
+
+
+
+    // 事件委托
+    $('.item_btn').delegate('span', 'click', function (event) {
+        if($(this).attr('class').search('vote') !== -1){
+            if($(this).index() === 0){
+                $(this).addClass('vote-active').next().addClass('span-active');
+            }else {
+                $(this).addClass('span-active').prev().addClass('vote-active');
+            }
+
+
+
+        }else if($(this).attr('class').search('comment') !== -1){
+
+            if($(this).index() === 0){
+                $(this).addClass('comment-active').next().addClass('span-active');
+            }else {
+                $(this).addClass('span-active').prev().addClass('comment-active');
+            }
+
+
+        }else if($(this).attr('class').search('collect') !== -1){
+
+            if($(this).index() === 0){
+                $(this).addClass('collect-active').next().addClass('span-active');
+            }else {
+                $(this).addClass('span-active').prev().addClass('collect-active');
+            }
+
+        }
+
+
+
+
+
+
+
+    });
+
+});
+
