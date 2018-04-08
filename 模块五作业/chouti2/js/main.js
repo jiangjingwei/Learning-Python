@@ -118,20 +118,35 @@ $(function () {
     $('.pop_con').click(function () {
         return false
     });
-    
-    
 
-    // 事件委托
-    $('.item_btn').delegate('span', 'click', function (event) {
-        if($(this).attr('class').search('vote') !== -1){
-            if($(this).index() === 0){
-                $(this).addClass('vote-active').next().addClass('span-active');
-            }else {
-                $(this).addClass('span-active').prev().addClass('vote-active');
-            }
 
-            var $span = $('<span>+1</span>').addClass('vote-animate').appendTo('body');
+    // 点赞
 
+    $('.vote').click(function () {
+        if($(this).hasClass('vote-active')){
+            $(this).removeClass('vote-active').siblings().removeClass('span-active');
+            var $span = $('<span>').addClass('vote-animate').appendTo('body');
+
+            var $voteAnimate = $('.vote-animate');
+            var $pos = $(this).offset();
+            $voteAnimate.html('-1');
+            $voteAnimate.css({position:'fixed', left:$pos.left, top:$pos.top, color:'#9add7f'});
+
+            var times = 1;
+            var timer = setInterval(function () {
+
+                times ++;
+                if (times >15){
+                    clearInterval(timer);
+                     $voteAnimate.remove();
+                }
+                $voteAnimate.animate({left:'+=2', top: '-=5', fontSize: '+=4', opacity:'-=0.08'},30);
+
+            },30)
+        }else {
+            $(this).addClass('vote-active').siblings().addClass('span-active');
+
+            var $span = $('<span>').addClass('vote-animate').appendTo('body');
             var $voteAnimate = $('.vote-animate');
             var $pos = $(this).offset();
             $voteAnimate.html('+1');
@@ -149,36 +164,26 @@ $(function () {
 
             },30)
 
-
-
-
-
-        }else if($(this).attr('class').search('comment') !== -1){
-
-            if($(this).index() === 0){
-                $(this).addClass('comment-active').next().addClass('span-active');
-            }else {
-                $(this).addClass('span-active').prev().addClass('comment-active');
-            }
-
-
-        }else if($(this).attr('class').search('collect') !== -1){
-
-            if($(this).index() === 0){
-                $(this).addClass('collect-active').next().addClass('span-active');
-            }else {
-                $(this).addClass('span-active').prev().addClass('collect-active');
-            }
-
         }
 
-
-
-
-
-
-
     });
+
+
+
+    // 评论
+
+    $('.comment').click(function () {
+        if($(this).hasClass('comment-active')){
+            $(this).removeClass('comment-active').siblings().removeClass('span-active');
+            $(this).parent().parent().parent().parent()[0].children[2].style.display='none'
+
+        }else {
+            $(this).addClass('comment-active').siblings().addClass('span-active');
+            $(this).parent().parent().parent().parent()[0].children[2].style.display='block'
+        }
+    });
+    
+
 
 
     // goTop
@@ -191,7 +196,47 @@ $(function () {
             $('.gotop').show();
         }
 
-    })
+    });
+
+
+    // 发布弹框
+    $('#release_btn').click(function () {
+         $('#pop_new_paper').show();
+    });
+
+
+    $('#paper_shout-off').click(function () {
+        $('#pop_new_paper').hide();
+    });
+
+
+    // 发布弹框拖动效果
+    $('#paper_title').mousedown(function (event) {
+        var old_x = event.clientX;
+        var old_y = event.clientY;
+        // console.log(old_x,old_y);
+
+        var $pop = $('.new_paper_content').offset();
+        var pop_x = $pop.left;
+        var pop_y = $pop.top;
+
+        // console.log(current_x,current_y);
+        $(document).mousemove(function (event) {
+            var new_x = event.clientX;
+            var new_y = event.clientY;
+            console.log(new_x,new_y);
+            $('.new_paper_content').css({left:pop_x + new_x - old_x,top:pop_y + new_y - old_y,
+                position:'fixed', cursor:'move', margin:0});
+        })
+    });
+
+    $('#paper_title').mouseup(function (event) {
+        $(document).off('mousemove');
+        $('.new_paper_content').css({cursor:'default'})
+    });
+
+
+
 
 });
 

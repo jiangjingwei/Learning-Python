@@ -13,29 +13,77 @@
 
     <script src="../js/jquery-1.12.4.min.js"></script>
     <script>
-        $(function () {
-
-            $('#btn').click(function () {
-
-            var $pos = $('#btn').offset();
-            $('span').css({position:'fixed',left:$pos.left,top:$pos.top})
-//            setInterval(function () {
+//         $(function () {
 //
-//            })
+//             $('#btn').click(function () {
+//
+//             var $pos = $('#btn').offset();
+//             $('span').css({position:'fixed',left:$pos.left,top:$pos.top})
+// //            setInterval(function () {
+// //
+// //            })
+//
+//         })
+//
+//         });
+        
+        
+            $(function () {
+                $('#box').mousedown(function (event) {
 
-        })
+                    var old_x = event.clientX;
+                    var old_y = event.clientY;
 
-        });
+                    var $box = $('#box').offset();
+                    var x = $box.left;
+                    var y = $box.top;
+                    console.log(old_x,old_y);
 
+                    $(document).mousemove(function (event) {
+                        var new_x = event.clientX;
+                        var new_y = event.clientY;
+                        $('#box').css({left:x+ new_x-old_x, top:new_y-old_y+y, position:'fixed'});
+                        console.log(new_x,new_y)
+                    });
+
+
+                });
+
+                $('#box').mouseup(function (event) {
+                        $(document).off();
+
+                    })
+
+
+
+                
+                
+            })
+
+        
 
     </script>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #336699;
+        }
+    </style>
 
 </head>
 <body>
 
-<input type="button" value="按钮" id="btn">
+<div id="box"></div>
 
-<span>+1</span>
+<!--<input type="button" value="按钮" id="btn">-->
+
+<!--<span>+1</span>-->
 
 </body>
 </html>
