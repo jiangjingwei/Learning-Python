@@ -1,0 +1,3 @@
+$('.chat-item').click(function () {
+    
+});

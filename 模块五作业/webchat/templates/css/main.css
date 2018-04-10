@@ -1,3 +1,7 @@
+body{
+	font-family:'Microsoft Yahei';
+}
+
 /*
     聊天首页
 */
@@ -8,6 +12,7 @@
     top: 0;
     bottom: 0;
     /*background-color: #84a42b;*/
+
 }
 
 .header{
@@ -46,11 +51,12 @@
     background-color: #efefef;
     overflow-x: hidden;
     overflow-y: auto;
+
 }
 
 
 .center-wrap .search{
-    margin: 0.35rem auto 0;
+    /*margin: 0.35rem auto 0;*/
     text-align: center;
     height: 2rem;
     position: relative;
@@ -61,15 +67,20 @@
 .center-wrap .search input{
     outline: 0;
     border-radius: 0.18rem;
-    padding: 0.35rem;
+    padding: 0.1rem;
     width: 94%;
     border: 0.02rem solid #cdcdcd;
+    margin-top: 0.35rem;
+
+    font-size: 16px;
+
+
 
 }
 
 .center-wrap .search label{
     position: absolute;
-    top: 0.3rem;
+    top: 0.4rem;
     left: 7.8rem;
     font-size: 0.8rem;
     color: #8a8a8a;
@@ -125,19 +136,19 @@
 
 
 .footer{
-    width: 100%;
     position: absolute;
+    width: 100%;
     height: 2.5rem;
     background-color: white;
     left: 0;
     bottom: 0;
-    border-top: 0.05rem solid #cdcdcd;
+    /*border-top: 0.05rem solid #cdcdcd;*/
 }
 
-.footer ul{
-    width: 100%;
-    overflow: hidden;
-}
+/*.footer ul{*/
+    /*width: 100%;*/
+    /*overflow: hidden;*/
+/*}*/
 
 .footer ul li{
     float: left;
@@ -201,7 +212,7 @@
     left: 0;
     right: 0;
     top: 2.5rem;
-    bottom: 1rem;
+    bottom: 2.2rem;
     background-color: #efefef;
     overflow-x: hidden;
     overflow-y: auto;
@@ -212,12 +223,12 @@
 .chat-input-con{
     width: 100%;
     position: absolute;
-    height: 1.3rem;
+    height: 2.2rem;
     background-color: white;
     left: 0;
     bottom: 0;
     border-top: 0.05rem solid #cdcdcd;
-    padding: 0.5rem 0.5rem;
+
 }
 
 
@@ -227,8 +238,11 @@
     border: 0.05rem solid #cdcdcd;
     border-radius: 0.25rem;
     float: left;
-    margin-right: 0.5rem;
+    margin-top: 0.4rem;
+    margin-left: 0.5rem;
     outline: 0;
+    font-size: 14px;
+
 }
 
 .chat-input-con .expression{
@@ -238,4 +252,6 @@
     background: url("../images/expression.png");
     background-size: 1.3rem 1.3rem;
     float: left;
+    margin-top: 0.4rem;
+    margin-left: 0.5rem;
 }
