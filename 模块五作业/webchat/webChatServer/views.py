@@ -27,14 +27,17 @@ def login(request):
     user = username[5:]
     pwd = password[4:]
 
-    conn = pymysql.connect(host='localhost', user='root', password='', database='test', charset='utf8')
+    conn = pymysql.connect(host='localhost', user='root', password='123', database='test', charset='utf8')
     cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
 
-    sql = "select * from USER  WHERE username=%s and password=%s"
+    sql_varify = "select * from USER  WHERE username=%s and password=%s"
 
-    result = cursor.execute(sql, [user, pwd])
+    result = cursor.execute(sql_varify, [user, pwd])
 
+    sql_all_user = 'select * from USER '
+    result_all = cursor.execute(sql_all_user)
     data_dict = cursor.fetchall()
+
     print(data_dict)
 
     recv_data = {}
@@ -42,6 +45,7 @@ def login(request):
     if result:
         recv_data["code"] = 1,
         recv_data["message"] = "登陆成功"
+        recv_data['friends'] = data_dict
     else:
         recv_data["code"] = 0,
         recv_data["message"] = "用户名或密码错误"

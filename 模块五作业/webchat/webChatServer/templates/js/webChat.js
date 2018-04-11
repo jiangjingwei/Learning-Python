@@ -2,6 +2,7 @@ $(function (){
 
 
 
+
     $('#login-btn').click(function () {
        var username = $('#username').val();
        var password = $('#password').val();
@@ -11,7 +12,10 @@ $(function (){
        login(username,password);
 
 
+
     });
+
+
 
 
 
@@ -29,9 +33,10 @@ $(function (){
             url:'/login',
             data:{user:username,pwd:passwrod},
             success:function (data) {
-                code = JSON.parse(data).code;
-                console.log('code:', JSON.parse(data));
-                if(code[0] === 1){
+                data = JSON.parse(data);
+
+                // console.log('code:', JSON.parse(data));
+                if(data.code[0] === 1){
                     console.log('login success');
 
                     setTimeout(function () {
@@ -44,6 +49,13 @@ $(function (){
 
                     //登陆成功后隐藏弹框
                     $('.login-wrap').fadeOut(2000);
+
+
+
+                    // $('<div>').appendTo('.center-wrap').addClass('chat-item').html('111')
+
+
+
 
                 }else {
                     console.log('login fail');
@@ -60,6 +72,8 @@ $(function (){
 
             }
         })
+
+        return 1
 
     }
 
