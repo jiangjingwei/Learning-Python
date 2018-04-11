@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AmaranJS Examples</title>
+    <link rel="stylesheet" href="../base/amaran.min.css">
+    <link rel="stylesheet" href="../base/animate.min.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div id="box">
+        <button id="start">Start</button>
+
+    </div>
+</div>
+</body>
+<script src="../base/jquery.js"></script>
+<script src="../base/jquery.amaran.js"></script>
+<script>
+    $(function () {
+        $('#start').on('click', function () {
+            $.amaran({'message': 'My first example!', 'position': 'top right'});
+        });
+    });
+</script>
+</html>

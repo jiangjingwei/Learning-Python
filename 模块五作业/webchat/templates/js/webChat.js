@@ -1,3 +1,0 @@
-$('.chat-item').click(function () {
-    
-});

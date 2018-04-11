@@ -4,11 +4,21 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/main.css">
-
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/webChat.js"></script>
+    <script type="text/javascript" src="js/set_root.js"></script>
+    <link rel="stylesheet" href="css/dialog.css">
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/dialog.min.js"></script>
     <title>聊天室</title>
+
+    <script>
+
+    </script>
+
+
 </head>
 <body>
 <div class="main-wrap">
@@ -20,7 +30,7 @@
 
     <div class="center-wrap">
         <div class="search" id="search">
-            <input type="search" name="search" data-role="none" />
+            <input type="search" name="search" />
             <label for="search"><span class="search-icon"></span>搜索</label>
         </div>
 
@@ -180,10 +190,24 @@
         </ul>
     </div>
 
+
+
+    <div class="login-wrap">
+        <div class="login-con">
+            <input type="text" placeholder="用户名" name="username" id="username">
+            <input type="password" placeholder="密码" name="password" id="password">
+            <input type="submit" value="登陆" class="login-btn" id="login-btn">
+        </div>
+            
+
+        <div class="mask"></div>
+    </div>
+
 </div>
-<script type="text/javascript" src="js/webChat.js"></script>
-<script type="text/javascript" src="js/set_root.js"></script>
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+
+
+
+
 </body>
 </html>

@@ -255,3 +255,59 @@ body{
     margin-top: 0.4rem;
     margin-left: 0.5rem;
 }
+
+
+.main-wrap .login-wrap{
+    position: absolute;
+    /*width: 100%;*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /*display: none;*/
+
+}
+
+.main-wrap .login-con{
+    position: absolute;
+    width: 80%;
+    height: 20rem;
+    top: 50%;
+    left: 2rem;
+    margin-top: -10rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    z-index: 9999;
+}
+
+
+.main-wrap .login-con input{
+    width: 90%;
+    border-radius: 0.4rem;
+    height: 1.2rem;
+    outline: 0;
+    /*padding: 0.2rem;*/
+    margin: 1rem 0.35rem;
+    font-size: 0.8rem;
+}
+
+
+.main-wrap .login-con input.login-btn{
+    width: 40%;
+    padding: 1rem 0;
+    line-height: 0.2rem;
+    margin-left: 4rem;
+
+}
+
+.main-wrap .mask{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 9990;
+}
