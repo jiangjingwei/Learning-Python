@@ -7,6 +7,7 @@ def routes():
         ('^/index', index),
 
         ('^/login', login),
+        ('^/chat', chat),
         ('^/.*[(.jpg),(.png),(.css),(.js),(.gif)]$', templates),
 
     )

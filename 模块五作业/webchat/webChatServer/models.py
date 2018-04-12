@@ -30,12 +30,29 @@
 
 import pymysql
 
-conn = pymysql.connect(host='localhost', user='root', password='', database='test', charset='utf8')
 
-cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
+def login_check(user, pwd):
+
+    conn = pymysql.connect(host='localhost', user='root', password='', database='test', charset='utf8')
+    cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
+
+    sql_varify = "select * from USER  WHERE username=%s and password=%s"
+
+    result = cursor.execute(sql_varify, [user, pwd])
+
+    conn.close()
+
+    return result
 
 
-sql = 'select * from USER where username=%s and password=%s'
+def fetch_all_user():
+    conn = pymysql.connect(host='localhost', user='root', password='', database='test', charset='utf8')
+    cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
 
-res = cursor.execute(sql, ['alex', '1234'])
-print(res)
+    sql_all_user = 'select * from USER '
+    result_all = cursor.execute(sql_all_user)
+    data_dict = cursor.fetchall()
+
+    conn.close()
+    return data_dict
+
