@@ -8,7 +8,8 @@ def routes():
 
         ('^/login', login),
         ('^/chat', chat),
-        ('^/.*[(.jpg),(.png),(.css),(.js),(.gif)]$', templates),
+        ('^/webchat', webchat),
+        ('^/.*[(.jpg),(.png),(.css),(.js),(.gif),(.woff?v=3.2.1),(.ttf?v=3.2.1)]$', templates),
 
     )
 

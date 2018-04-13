@@ -1,7 +1,7 @@
 $(function (){
 
 
-
+    // 隐藏登陆框
     if($.cookie('loginFlag')){
         $('.login-wrap').hide();
         console.log($.cookie('loginFlag'));
@@ -12,7 +12,7 @@ $(function (){
 
 
 
-
+    // 点击按钮登陆
     $('#login-btn').click(function () {
        var username = $('#username').val();
        var password = $('#password').val();
@@ -23,12 +23,39 @@ $(function (){
 
     });
 
-
+    // 每个好友点击跳转聊天页面
     $(".center-wrap").on('click', '.chat-item', function () {
         console.log(111);
-        window.location.replace('http://localhost:9999/chat.html');
+        var user = $(this).children('.item').children('h3').text();
+
+        var url = 'http://localhost:9999/chat.html?user=' + user;
+
+        window.location.replace(url);
+
+
     });
 
+
+    $('#send-btn').click(function () {
+        // console.log($('#send-content').val());
+        var content = $('#send-content').val();
+        var $p = $('<p>').addClass('fr').text(content);
+        var $div = $('<div>').append($p);
+        $('.chat-center-wrap').append($div);
+
+
+        var datamessage = {sendUser:$.cookie('loginFlag'), recvUser:$('#user').text(), message:content};
+        // console.log(datamessage)
+
+        $.post({
+            url:'/webchat',
+            type:'json',
+            data:datamessage,
+            success:function (data) {
+                console.log('callback', JSON.parse(data))
+            }
+        })
+    });
 
 
 
@@ -68,43 +95,6 @@ $(function (){
                     $('.login-wrap').fadeOut(2000);
 
                     window.location.reload()
-
-
-                    // $.each(data.friends, function (index, value) {
-                        // console.log(index, value)
-
-
-
-                            // /*'<div class="chat-item">\n' +
-                            // '                <img src="./images/359.jpg" alt="">\n' +
-                            // '                <div class="item clearfix">\n' +
-                            // '                    <h3>大胖</h3>\n' +
-                            // '                    <span class="msg">message</span>\n' +
-                            // '                    <span class="time">09:12</span>\n' +
-                            // '                </div>\n' +
-                            // '\n' +
-                            // '\n' +
-                            // '        </div>';
-
-
-                        // 图片
-                        // var $img = $('<img>').attr('src', './images/359.jpg');
-                        //
-                        // var $h3 = $('<h3>').text(value.username);
-                        //
-                        // var $item = $('div').addClass('item').addClass('clearfix').append($h3);
-                        //
-                        // var $chat_item = $('<div>').addClass('chat-item').append($img).append($item);
-                        //
-                        // $('.center-wrap').append($chat_item);
-                        //
-                        // console.log($('.center-wrap'));
-
-
-                    // });
-
-
-
 
 
                 }else {

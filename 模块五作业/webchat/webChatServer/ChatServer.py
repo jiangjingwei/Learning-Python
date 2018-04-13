@@ -22,12 +22,14 @@ def post_data(environ):
 
 def application(environ, start_response):
 
+
     # 获取post数据
     request_body = post_data(environ)
 
     request = {
         "path": environ['PATH_INFO'],
         "data": request_body,
+        'query_string': environ['QUERY_STRING'],
     }
 
     urlpatterns = routes()
@@ -45,6 +47,12 @@ def application(environ, start_response):
     if func:
         if request.get('path').endswith('.html'):
             start_response("200 ok", [("Content-Type", "text/html")])
+        # elif request.get('path').endswith('v=3.2.1'):
+        #     start_response("304 Not Modified")
+
+        elif request.get('path').startswith('/webchat'):
+            start_response("200 ok", [("Content-Type", "application/x-www-form-urlencoded")])
+
         elif request.get('path').endswith('.png'):
             start_response("200 ok", [("Content-Type", "image/png")])
         elif request.get('path').endswith('.gif'):
@@ -57,6 +65,8 @@ def application(environ, start_response):
             start_response("200 ok", [("Content-Type", "application/x-javascript")])
         elif request.get('path').startswith('/login'):
             start_response("200 ok", [("Content-Type", "application/x-www-form-urlencoded")])
+        elif request.get('path').endswith('v=3.2.1'):
+            start_response("200 ok")
 
         return func(request)
 

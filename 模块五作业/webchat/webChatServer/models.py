@@ -56,3 +56,18 @@ def fetch_all_user():
     conn.close()
     return data_dict
 
+
+def message_insert(sendUser,recvUser,message):
+
+    conn = pymysql.connect(host='localhost', user='root', password='', database='test', charset='utf8')
+    cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
+
+    insert_message = 'insert into chat_message(sendUser,recvUser,message) VALUES (%s, %s, %s )'
+
+    result = cursor.execute(insert_message, [sendUser, recvUser, message])
+
+    conn.close()
+
+    return result
+
+

@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
     <link rel="shortcut icon" href="images/ico.png" type="image/x-icon"/>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/set_root.js"></script>
+    <script type="text/javascript" src="js/webChat.js"></script>
+
     <title>大胖</title>
 </head>
 <body>
@@ -13,56 +20,42 @@
 <div class="main-wrap">
 
     <div class="header">
-        <h2>大胖</h2>
-        <a href="" class="back"></a>
+        <h2 id="user">{{user}}}</h2>
+        <a href="/index.html" class="back"></a>
     </div>
 
     <div class="chat-center-wrap">
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
 
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
-        <p>111</p>
+        <!--<a class="btn btn-large btn-primary" href="#">-->
+            <!--<i class="icon-comment"></i> Comment-->
+        <!--</a>-->
+        <div>
+            <p class="fl">1112222222222222222222222222222555555555555555555555555</p>
+        </div>
+
+        <div>
+            <p class="fr">1112222222222</p>
+        </div>
+        <div>
+            <p class="fl">1112222222222222222222222222222555555555555555555555555</p>
+        </div>
+
 
 
 
     </div>
 
     <div class="chat-input-con">
-        <input type="text" />
+        <input type="text" class="send-content" id="send-content"/>
         <span class="expression"></span>
+        <button class="send-btn" id="send-btn">发送</button>
     </div>
 
 </div>
 
 
 
-<script type="text/javascript" src="js/set_root.js"></script>
-<script type="text/javascript" src="js/webChat.js"></script>
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
 
 </body>
 </html>

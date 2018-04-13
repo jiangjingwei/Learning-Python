@@ -13,5 +13,10 @@ s = 'user=alex&pwd=123'
 # print(s1)
 
 
-f = open(r"G:\PycharmProject\Learning-Python\模块五作业\webchat\webChatServer\templates\index.html", 'r', encoding='utf-8')
-print(f.read())
+# f = open(r"G:\PycharmProject\Learning-Python\模块五作业\webchat\webChatServer\templates\index.html", 'r', encoding='utf-8')
+# print(f.read())
+
+
+s = '/chat.html/alex'
+
+print(s.split('/', 3))

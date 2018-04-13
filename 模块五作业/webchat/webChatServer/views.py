@@ -15,7 +15,7 @@ def index(request):
 
         data = f.read()
 
-        all_item = '';
+        all_item = ''
 
         for item in data_dict:
             re_item = """<div class="chat-item">
@@ -28,7 +28,7 @@ def index(request):
                             </div>""" % (item['username'])
             all_item += re_item
 
-        print('all_item', all_item)
+        # print('all_item', all_item)
 
         new_data = data.replace("""<div id="chat-item"></div>""", all_item)
         new_data = new_data.encode('utf-8')
@@ -46,16 +46,25 @@ def index(request):
 
 def chat(request):
     path = 'templates' + request.get('path')
+    # print(path)
+    user = request.get('query_string').split('=')[1]
 
-    f = open(path, 'rb')
+    # print(user)
+    f = open(path, 'r', encoding='utf-8')
     data = f.read()
-
-    return [data]
+    new_data = data.replace('{{user}}}', user)
+    new_data = new_data.encode('utf-8')
+    return [new_data]
 
 
 def templates(request):
-    path = 'templates' + request.get('path')
-
+    # print(request)
+    query_string = request.get('query_string')
+    if query_string:
+        path = 'templates' + request.get('path')
+    else:
+        path = 'templates' + request.get('path')
+    print(path)
     f = open(path, 'rb')
     data = f.read()
 
@@ -87,6 +96,27 @@ def login(request):
     else:
         recv_data["code"] = 0,
         recv_data["message"] = "用户名或密码错误"
+
+    recv_data = json.dumps(recv_data).encode('utf-8')
+
+    return [recv_data]
+
+
+def webchat(request):
+
+    post_data = request.get('data').split('&')
+
+    for item in post_data:
+        data = item.split('=')
+
+    print()
+
+    # message_insert()
+
+    recv_data = {
+        "code": 1,
+        "message": "发送成功",
+    }
 
     recv_data = json.dumps(recv_data).encode('utf-8')
 
