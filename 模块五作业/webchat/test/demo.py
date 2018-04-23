@@ -17,6 +17,29 @@ s = 'user=alex&pwd=123'
 # print(f.read())
 
 
-s = '/chat.html/alex'
+# s = '/chat.html/alex'
+#
+# print(s.split('/', 3))
 
-print(s.split('/', 3))
+import pymysql
+
+
+def message_insert():
+
+    conn = pymysql.connect(host='localhost', user='root', password='', database='test', charset='utf8')
+    cursor = conn.cursor()
+
+    insert_message = 'insert into chat_message(sendUser,recvUser,message) VALUES (%s, %s, %s )'
+
+    result = cursor.execute(insert_message, ['alex', 'tom', 'aa'])
+
+    conn.commit()
+
+    conn.close()
+
+    return result
+
+
+if __name__ == '__main__':
+    status = message_insert()
+    print(status)

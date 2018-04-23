@@ -39,22 +39,27 @@ $(function (){
     $('#send-btn').click(function () {
         // console.log($('#send-content').val());
         var content = $('#send-content').val();
-        var $p = $('<p>').addClass('fr').text(content);
-        var $div = $('<div>').append($p);
-        $('.chat-center-wrap').append($div);
+        if(content !== ''){
+            var $p = $('<p>').addClass('fr').text(content);
+            var $div = $('<div>').append($p);
+            $('.chat-center-wrap').append($div);
 
 
-        var datamessage = {sendUser:$.cookie('loginFlag'), recvUser:$('#user').text(), message:content};
-        // console.log(datamessage)
+            var datamessage = {sendUser:$.cookie('loginFlag'), recvUser:$('#user').text(), message:content};
+            // console.log(datamessage)
 
-        $.post({
-            url:'/webchat',
-            type:'json',
-            data:datamessage,
-            success:function (data) {
-                console.log('callback', JSON.parse(data))
-            }
-        })
+            $.post({
+                url:'/webchat',
+                type:'json',
+                data:datamessage,
+                success:function (data) {
+                    console.log('callback', JSON.parse(data))
+                }
+            });
+
+            content = $('#send-content').val('');
+        }
+
     });
 
 

@@ -1,7 +1,7 @@
 import pymysql
 import json
 
-from models import login_check, fetch_all_user
+from models import login_check, fetch_all_user, message_insert
 
 LOGIN_STATUS = False
 
@@ -104,14 +104,28 @@ def login(request):
 
 def webchat(request):
 
-    post_data = request.get('data').split('&')
+    print(request.get('data').decode('utf-8'))
+
+    post_data = request.get('data').decode('utf-8').split('&')
+
+    message_info = {
+        'sendUser': None,
+        'recvUser': None,
+        'message': None
+    }
 
     for item in post_data:
         data = item.split('=')
+        if data[0] == 'sendUser':
+            message_info['sendUser'] = data[1]
 
-    print()
+        if data[0] == 'recvUser':
+            message_info['recvUser'] = data[1]
 
-    # message_insert()
+        if data[0] == 'message':
+            message_info['message'] = data[1]
+
+    status = message_insert(message_info)
 
     recv_data = {
         "code": 1,
