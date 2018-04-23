@@ -5,42 +5,7 @@
     <title>todoList</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-theme.css">
-
     <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-
-    <style>
-        .container  input{
-            width: 800px;
-            display: inline-block;
-        }
-
-
-        .container li span{
-            float: right;
-            font-size: 18px;
-            margin-right: 10px;
-        }
-    </style>
-
-
-    <script>
-        $(function () {
-
-            // 添加todo
-            $('#add-btn').click(function () {
-                var content = $('#input-con').val();
-                console.log(content)
-            });
-
-
-
-            
-        });
-        
-    </script>
-
 
 </head>
 <body>
@@ -48,13 +13,11 @@
 <div class="container">
 
 
-        <!--<div class="row">-->
 
-            <input type="text" class="form-control input-lg input-con" id="input-con" placeholder="Jane Doe" >
+            <input type="text" class="form-control input-lg input-con" id="input-con" placeholder="TodoList" >
 
             <button type="submit" class="btn btn-primary btn-lg" id="add-btn"><span class="glyphicon glyphicon-plus"></span></button>
 
-        <!--</div>-->
 
 
 
@@ -69,12 +32,9 @@
                   <h3 class="panel-title">正在进行</h3>
                 </div>
                 <div class="panel-body">
-                  <ul class="list-group">
-                    <li class="list-group-item">Cras justo odio <span class="glyphicon glyphicon-remove"></span><span class="glyphicon glyphicon-ok"></span></li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
+                  <ul class="list-group" id="doing">
+                    <li class="list-group-item">学习django<span class="glyphicon glyphicon-remove" id="remove"></span><span class="glyphicon glyphicon-ok" id="transfer"></span></li>
+
                   </ul>
                 </div>
             </div>
@@ -89,12 +49,9 @@
                   <h3 class="panel-title">已经完成</h3>
                 </div>
                 <div class="panel-body">
-                  <ul class="list-group">
-                    <li class="list-group-item">Cras justo odio <span class="glyphicon glyphicon-remove"></span><span class="glyphicon glyphicon-share-alt"></span></li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
+                  <ul class="list-group" id="done">
+                    <li class="list-group-item">去泰国旅游 <span class="glyphicon glyphicon-remove" id="remove1"></span><span class="glyphicon glyphicon-share-alt" id="reset"></span></li>
+
                   </ul>
                 </div>
             </div>
@@ -102,28 +59,14 @@
         </div>
 
 
-
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 </div>
 
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>
