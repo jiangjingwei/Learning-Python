@@ -3,6 +3,8 @@ ul{
     padding: 0;
 }
 
+
+
 a{
     text-decoration: none;
 }
@@ -299,6 +301,58 @@ body{
 .col-content .connect{
     padding: 5px 15px;
     border: 1px solid #ff6700;
+}
+
+
+/* slide hover*/
+.product-con{
+    width: 906px;
+    height: 100%;
+    position: absolute;
+    left: 236px;
+    top: 0;
+    background-color: white;
+    z-index: 9999;
+    display: none;
+
+}
+
+.product-con .product-list{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.product-con .product-list li{
+    float: left;
+    width: 25%;
+    height: 16.6%;
+    /*background-color: #336699;*/
+    line-height: 16.6%;
+    overflow: hidden;
+
+}
+
+.product-con .product-list li a{
+
+    display: block;
+    margin-top: 18px;
+    margin-left: 30px;
+    text-decoration: none;
+
+}
+
+.product-con .product-list li img{
+    width: 35px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.product-con .product-list li span{
+    color: black;
+    /*font-size: 16px;*/
+    font-weight: 400;
+
 }
 
 

@@ -13,17 +13,87 @@
 
     <style>
 
+        .title-slide{
+            position: absolute;
+            top: 170px;
+            left: 0;
+            width: 100%;
+            height: 220px;
+            background-color: white;
+            z-index: 9999;
+
+        }
+
+        .title-slide ul{
+            height: 100%;
+            width: 1140px;
+            margin: 0 auto;
+        }
+
+
+        .title-slide ul li{
+            height: 100%;
+            width: 16.6%;
+            /*background-color: #dddddd;*/
+            float: left;
+            text-align: center;
+
+        }
+
+        .title-slide ul li a{
+            display: block;
+            /*height: 85px;*/
+            /*margin-top: 5px;*/
+            border-right: 1px solid #dddddd;
+            width: 100%;
+            text-decoration: none;
+        }
+
+
+         .title-slide ul li:last-child a{
+            border-right: none;
+        }
+
+        .title-slide ul li img{
+            margin-top: 15px;
+        }
+
+        .title-slide ul li p{
+            /*float: left;*/
+            /*display: block;*/
+            height: 25px;
+            /*width: 100%;*/
+            line-height: 25px;
+            font-size: 12px;
+            color: #ff6700;
+
+        }
+
+        .title-slide ul li p.tag{
+            width: 60px;
+            margin: 0 auto;
+            border: 1px solid #ff6700;
+        }
+
+
+
+        .title-slide ul li p.product-name{
+            font-size: 14px;
+            color: black;
+            margin-bottom: 0;
+            margin-top: 15px;
+        }
 
 
     </style>
 
 
-    <script>
 
-
-    </script>
 </head>
 <body>
+
+
+
 
 
 
@@ -94,15 +164,35 @@
                 <input type="text" id="search-box">
                 <a href="">小米6X 拍人更美</a>
                 <span class="glyphicon glyphicon-search"></span>
-
             </div>
+
+
+             <div class="title-slide">
+                 <ul>
+                     <li><p class="tag">新品</p><a href=""><img src="images/note3-80-2.png" alt=""><p class="product-name">小米Note3</p></a><p class="price">3299起</p></li>
+                     <li><p class="tag">新品</p><a href=""><img src="images/note3-80-2.png" alt=""><p class="product-name">小米Note3</p></a><p class="price">3299起</p></li>
+                     <li><p class="tag">新品</p><a href=""><img src="images/note3-80-2.png" alt=""><p class="product-name">小米Note3</p></a><p class="price">3299起</p></li>
+                     <li><p class="tag">新品</p><a href=""><img src="images/note3-80-2.png" alt=""><p class="product-name">小米Note3</p></a><p class="price">3299起</p></li>
+                     <li><p class="tag">新品</p><a href=""><img src="images/note3-80-2.png" alt=""><p class="product-name">小米Note3</p></a><p class="price">3299起</p></li>
+                     <li><p class="tag">新品</p><a href=""><img src="images/note3-80-2.png" alt=""><p class="product-name">小米Note3</p></a><p class="price">3299起</p></li>
+                 </ul>
+
+
+             </div>
+
+
+
+
+
+
+
         </div>
 
 
 
          <div class="slide">
 
-             <ul class="slide-menu">
+             <ul class="slide-menu" id="slide-menu">
                  <li><a href="">手机 电话卡</a><span class="glyphicon glyphicon-chevron-right"></span></li>
                  <li><a href="">电视 盒子</a><span class="glyphicon glyphicon-chevron-right"></span></li>
                  <li><a href="">笔记本</a><span class="glyphicon glyphicon-chevron-right"></span></li>
@@ -114,6 +204,38 @@
                  <li><a href="">耳机 音响</a><span class="glyphicon glyphicon-chevron-right"></span></li>
                  <li><a href="">生活 米兔</a><span class="glyphicon glyphicon-chevron-right"></span></li>
              </ul>
+
+
+             <div class="product-con" id="product-con">
+                 <ul class="product-list">
+                     <li><a href=""><img src="images/heisha-80.png" alt=""><span>手环</span></a></li>
+                     <li><a href=""><img src="images/mix2-80.png" alt=""><span>手表</span></a></li>
+                     <li><a href=""><img src="images/mix2s80-80white.png" alt=""><span>体脂称</span></a></li>
+                     <li><a href=""><img src="images/note3-80-2.png" alt=""><span>感应灯</span></a></li>
+                     <li><a href=""><img src="images/shoubiao280.jpg" alt=""><span>体温计</span></a></li>
+                     <li><a href=""><img src="images/yundongshoubiao-80.jpg" alt=""><span>手电筒</span></a></li>
+                     <li><a href=""><img src="images/zxc80-80.jpg" alt=""><span>温度计</span></a></li>
+                     <li><a href=""><img src="images/heisha-80.png" alt=""><span>手环</span></a></li>
+                     <li><a href=""><img src="images/mix2-80.png" alt=""><span>手表</span></a></li>
+                     <li><a href=""><img src="images/mix2s80-80white.png" alt=""><span>体脂称</span></a></li>
+                     <li><a href=""><img src="images/note3-80-2.png" alt=""><span>感应灯</span></a></li>
+                     <li><a href=""><img src="images/shoubiao280.jpg" alt=""><span>体温计</span></a></li>
+                     <li><a href=""><img src="images/yundongshoubiao-80.jpg" alt=""><span>手电筒</span></a></li>
+                     <li><a href=""><img src="images/zxc80-80.jpg" alt=""><span>温度计</span></a></li>
+                     <li><a href=""><img src="images/heisha-80.png" alt=""><span>手环</span></a></li>
+                     <li><a href=""><img src="images/mix2-80.png" alt=""><span>手表</span></a></li>
+                     <li><a href=""><img src="images/mix2s80-80white.png" alt=""><span>体脂称</span></a></li>
+                     <li><a href=""><img src="images/note3-80-2.png" alt=""><span>感应灯</span></a></li>
+                     <li><a href=""><img src="images/shoubiao280.jpg" alt=""><span>体温计</span></a></li>
+                     <li><a href=""><img src="images/yundongshoubiao-80.jpg" alt=""><span>手电筒</span></a></li>
+                     <li><a href=""><img src="images/zxc80-80.jpg" alt=""><span>温度计</span></a></li>
+                     <li><a href=""><img src="images/note3-80-2.png" alt=""><span>感应灯</span></a></li>
+                     <li><a href=""><img src="images/shoubiao280.jpg" alt=""><span>体温计</span></a></li>
+                     <li><a href=""><img src="images/yundongshoubiao-80.jpg" alt=""><span>手电筒</span></a></li>
+                 </ul>
+
+
+             </div>
 
 
 
@@ -269,7 +391,10 @@
 </footer>
 
 
-
+<script type="text/javascript" src="js/mian.js"></script>
+<script>
+    console.log($('.title-slide ul a:last-of-type'))
+</script>
 
 
 </body>
