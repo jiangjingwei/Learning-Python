@@ -7,11 +7,11 @@ $(function () {
 
 
 
-    $('#slide-menu li').hover(function () {
-        $('#product-con').show();
+    $('#container-title li').hover(function () {
+        $('#title-slide').show();
     }, function () {
-        $('#product-con').hide();
-    });
+        $('#title-slide').hide();
+    })
 
 
 });
