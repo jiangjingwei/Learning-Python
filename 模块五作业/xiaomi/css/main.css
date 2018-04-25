@@ -357,6 +357,81 @@ body{
 
 
 
+.title-slide{
+    position: absolute;
+    top: 170px;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    background-color: white;
+    z-index: 9999;
+
+    display: none;
+
+}
+
+.title-slide ul{
+    height: 100%;
+    width: 1140px;
+    margin: 0 auto;
+}
+
+
+.title-slide ul li{
+    height: 100%;
+    width: 16.6%;
+    /*background-color: #dddddd;*/
+    float: left;
+    text-align: center;
+
+}
+
+.title-slide ul li a{
+    display: block;
+    /*height: 85px;*/
+    /*margin-top: 5px;*/
+    border-right: 1px solid #dddddd;
+    width: 100%;
+    text-decoration: none;
+}
+
+
+ .title-slide ul li:last-child a{
+    border-right: none;
+}
+
+.title-slide ul li img{
+    margin-top: 15px;
+}
+
+.title-slide ul li p{
+    /*float: left;*/
+    /*display: block;*/
+    height: 25px;
+    /*width: 100%;*/
+    line-height: 25px;
+    font-size: 12px;
+    color: #ff6700;
+
+}
+
+.title-slide ul li p.tag{
+    width: 60px;
+    margin: 0 auto;
+    border: 1px solid #ff6700;
+}
+
+
+
+.title-slide ul li p.product-name{
+    font-size: 14px;
+    color: black;
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+
+
+
 
 
 

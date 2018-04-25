@@ -24,7 +24,7 @@
     <hr>
 
 
-    <div class="row">
+    <div class="row" id="row">
 
         <div class="col-lg-5">
             <div class="panel panel-primary">
@@ -33,7 +33,11 @@
                 </div>
                 <div class="panel-body">
                   <ul class="list-group" id="doing">
-                    <li class="list-group-item">学习django<span class="glyphicon glyphicon-remove" id="remove"></span><span class="glyphicon glyphicon-ok" id="transfer"></span></li>
+                    <li class="list-group-item">学习django
+                        <span class="glyphicon glyphicon-remove" id="remove"></span>
+                        <span class="glyphicon glyphicon-ok" id="transfer"></span>
+                        <span class="glyphicon glyphicon-pencil edit" data-toggle="modal" data-target=".bs-example-modal-lg"></span>
+                    </li>
 
                   </ul>
                 </div>
@@ -50,7 +54,11 @@
                 </div>
                 <div class="panel-body">
                   <ul class="list-group" id="done">
-                    <li class="list-group-item">去泰国旅游 <span class="glyphicon glyphicon-remove" id="remove1"></span><span class="glyphicon glyphicon-share-alt" id="reset"></span></li>
+                    <li class="list-group-item">去泰国旅游
+                        <span class="glyphicon glyphicon-remove" id="remove1"></span>
+                        <span class="glyphicon glyphicon-share-alt" id="reset"></span>
+                        <span class="glyphicon glyphicon-pencil edit" data-toggle="modal" data-target=".bs-example-modal-lg"></span>
+                    </li>
 
                   </ul>
                 </div>
@@ -60,6 +68,29 @@
 
 
     </div>
+
+
+
+    <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>-->
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="modal">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+           <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">编辑</h4>
+           </div>
+           <div class="modal-body">
+                <input type="text" class="form-control input-lg input-con" id="edit-con" placeholder="TodoList" >
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="save" data-dismiss="modal">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
 </div>
