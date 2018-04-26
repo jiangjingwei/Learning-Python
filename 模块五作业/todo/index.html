@@ -17,6 +17,7 @@
             <input type="text" class="form-control input-lg input-con" id="input-con" placeholder="TodoList" >
 
             <button type="submit" class="btn btn-primary btn-lg" id="add-btn"><span class="glyphicon glyphicon-plus"></span></button>
+            <button type="submit" class="btn btn-primary btn-lg" id="clear-btn"><span class="glyphicon glyphicon-trash"></span>&nbsp;清空</button>
 
 
 
@@ -33,7 +34,8 @@
                 </div>
                 <div class="panel-body">
                   <ul class="list-group" id="doing">
-                    <li class="list-group-item">学习django
+                    <li class="list-group-item">
+                        <div>学习django</div>
                         <span class="glyphicon glyphicon-remove" id="remove"></span>
                         <span class="glyphicon glyphicon-ok" id="transfer"></span>
                         <span class="glyphicon glyphicon-pencil edit" data-toggle="modal" data-target=".bs-example-modal-lg"></span>
@@ -54,7 +56,8 @@
                 </div>
                 <div class="panel-body">
                   <ul class="list-group" id="done">
-                    <li class="list-group-item">去泰国旅游
+                    <li class="list-group-item">
+                        <div>去泰国旅游</div>
                         <span class="glyphicon glyphicon-remove" id="remove1"></span>
                         <span class="glyphicon glyphicon-share-alt" id="reset"></span>
                         <span class="glyphicon glyphicon-pencil edit" data-toggle="modal" data-target=".bs-example-modal-lg"></span>

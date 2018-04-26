@@ -8,10 +8,18 @@
     display: inline-block;
 }
 
+.container .btn{
+    margin-left: 10px;
+}
+
 
 .container li span{
     float: right;
     font-size: 18px;
     margin-right: 10px;
 
+}
+
+.container li div{
+    display: inline-block;
 }
